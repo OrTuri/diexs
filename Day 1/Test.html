@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>This is the heading</title>
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+        padding: 0;
+      }
+
+      body {
+        font-family: sans-serif;
+        font-size: 62.5%;
+      }
+
+      .main-title {
+        text-align: center;
+        font-weight: 800;
+        text-decoration: underline;
+        font-size: 4.5rem;
+        text-shadow: 20px 10px 10px rgba(0, 0, 0, 0.253);
+      }
+
+      p {
+        /* text-align: center; */
+        margin-top: 20px;
+        font-size: 1.2rem;
+      }
+
+      article {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: 500px;
+        margin: 20px auto;
+      }
+
+      li {
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      li:last-child {
+        margin-bottom: 0;
+      }
+
+      span {
+        font-size: inherit;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+
+      a:link,
+      a:visited {
+        font-size: 1.2rem;
+        color: rgb(12, 16, 224);
+        text-decoration: none;
+        border: 2px solid rgba(0, 0, 0, 0);
+        padding: 5px;
+      }
+
+      a:hover,
+      a:active {
+        color: red;
+        border: 2px solid purple;
+      }
+
+      img {
+        height: 300px;
+        border: 5px solid black;
+        transition: all 0.5s;
+      }
+
+      img:hover {
+        cursor: pointer;
+        border: 5px solid grey;
+        opacity: 0.8;
+        transform: scale(1.3);
+      }
+
+      svg {
+        height: 1.6rem;
+        width: 1.6rem;
+      }
+
+      table {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-top: 2rem;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+
+      th {
+        padding: 0.5rem 1rem;
+      }
+
+      tr:nth-child(even) {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      blockquote {
+        font-size: 1.2rem;
+      }
+
+      .sign-in-container {
+        margin: 10px auto;
+        width: 500px;
+        font-size: 1.2rem;
+      }
+
+      .input label:first-child {
+        margin-right: 1rem;
+        width: 100px;
+        display: inline-block;
+      }
+
+      .submit {
+        border: 1px solid rgba(0, 0, 0, 0);
+        padding: 0.5rem 1rem;
+        font-weight: 700;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+
+      .submit:hover {
+        border: 1px solid #000;
+        background-color: blanchedalmond;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+
+      .radio-gender label:not(:first-child) {
+        margin-right: 0.5rem;
+      }
+
+      .sign-up-container h2 {
+        font-weight: 800;
+        color: #030ea8;
+        margin-bottom: 2rem;
+      }
+
+      .sign-up-container {
+        margin: 2rem auto;
+        width: 500px;
+        text-align: center;
+      }
+
+      .checkbox-pets span {
+        margin-right: 1rem;
+      }
+
+      .checkbox-pets {
+        display: flex;
+        align-items: flex-start;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="main-title">About me</h1>
+    <article>
+      <p>
+        My name is Or. <br />
+        I'm 29 years old, I live in Ramat Gan and I worked as a BMS Project
+        manager before I started this course. <br />
+        Things I like to do: <br />
+      </p>
+      <ul>
+        <li>
+          <svg
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="512px"
+            height="512px"
+            viewBox="0 0 512 512"
+            enable-background="new 0 0 512 512"
+            xml:space="preserve"
+          >
+            <g id="bookmark">
+              <g>
+                <path
+                  d="M431.183,496.146c-2.038,0-4.063-0.622-5.788-1.848L256,374.055L86.606,494.301c-3.051,2.165-7.055,2.448-10.377,0.73
+                   c-3.324-1.717-5.411-5.146-5.411-8.885V25.854c0-5.523,4.477-10,10-10h350.363c5.522,0,10,4.477,10,10v460.293
+                   c0,3.738-2.088,7.168-5.409,8.885C434.325,495.778,432.751,496.146,431.183,496.146z"
+                />
+              </g>
+            </g></svg
+          ><span>Going to the gym</span>
+        </li>
+        <li>
+          <svg
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="512px"
+            height="512px"
+            viewBox="0 0 512 512"
+            enable-background="new 0 0 512 512"
+            xml:space="preserve"
+          >
+            <g id="bookmark">
+              <g>
+                <path
+                  d="M431.183,496.146c-2.038,0-4.063-0.622-5.788-1.848L256,374.055L86.606,494.301c-3.051,2.165-7.055,2.448-10.377,0.73
+                   c-3.324-1.717-5.411-5.146-5.411-8.885V25.854c0-5.523,4.477-10,10-10h350.363c5.522,0,10,4.477,10,10v460.293
+                   c0,3.738-2.088,7.168-5.409,8.885C434.325,495.778,432.751,496.146,431.183,496.146z"
+                />
+              </g>
+            </g></svg
+          ><span>Watching Netflix</span>
+        </li>
+        <li>
+          <svg
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="512px"
+            height="512px"
+            viewBox="0 0 512 512"
+            enable-background="new 0 0 512 512"
+            xml:space="preserve"
+          >
+            <g id="bookmark">
+              <g>
+                <path
+                  d="M431.183,496.146c-2.038,0-4.063-0.622-5.788-1.848L256,374.055L86.606,494.301c-3.051,2.165-7.055,2.448-10.377,0.73
+                   c-3.324-1.717-5.411-5.146-5.411-8.885V25.854c0-5.523,4.477-10,10-10h350.363c5.522,0,10,4.477,10,10v460.293
+                   c0,3.738-2.088,7.168-5.409,8.885C434.325,495.778,432.751,496.146,431.183,496.146z"
+                />
+              </g>
+            </g></svg
+          ><span>Going to the beach</span>
+        </li>
+      </ul>
+      <a href="../page2.html" target="_blank">A link to another page</a>
+      <img
+        src="photo-1546587348-d12660c30c50.jpg"
+        alt="A photo of a lake, a forest and mountains"
+      />
+
+      <table>
+        <tr>
+          <th>Projects</th>
+          <th>Skills</th>
+          <th>Hobbies</th>
+        </tr>
+        <tr>
+          <td>
+            An excercise web app which lets you locate your activities on a map
+            and track calorie burn
+          </td>
+          <td>2</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>
+            A reminder web app which notifies you about the tasks you have to
+            complete
+          </td>
+          <td>5</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>
+            Banking web app which lets transfer virtual money between accounts,
+            "invest" money into virtual stocks and other things..
+          </td>
+          <td>8</td>
+          <td>9</td>
+        </tr>
+      </table>
+    </article>
+
+    <div class="sign-up-container">
+      <h2>Please leave your detailes below</h2>
+      <form action="#" method="get" enctype="multipart/form-data">
+        <div>
+          <label for="fname">First Name</label>
+          <input
+            required
+            id="fname"
+            name="fname"
+            type="text"
+            placeholder="David"
+          />
+        </div>
+        <div>
+          <label for="lname">Last Name</label>
+          <input
+            required
+            id="lname"
+            name="lname"
+            type="text"
+            placeholder="Smith"
+          />
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input
+            required
+            id="password"
+            name="password"
+            type="password"
+            placeholder="NOT 123456!!"
+          />
+        </div>
+        <div>
+          <label for="email">Email address</label>
+          <input name="email" type="email" required id="email" />
+        </div>
+        <div>
+          <label for="age">Age</label>
+          <input
+            name="age"
+            type="number"
+            id="age"
+            required
+            min="18"
+            max="80"
+            placeholder="18"
+          />
+        </div>
+        <div>
+          <label for="birthdate">Birthdate</label>
+          <input type="date" name="birthdate" id="birthdate" required />
+        </div>
+        <div class="checkbox-pets">
+          <span>Pets owned</span>
+          <div>
+            <div>
+              <label for="dog">Dog</label>
+              <input type="checkbox" name="dog" id="dog" value="dog" />
+            </div>
+            <div>
+              <label for="cat">Cat</label>
+              <input type="checkbox" name="cat" id="cat" value="cat" />
+            </div>
+            <div>
+              <label for="mouse">Mouse</label>
+              <input type="checkbox" name="mouse" id="mouse" value="mouse" />
+            </div>
+          </div>
+        </div>
+        <div>
+          <span>Gender</span>
+          <div>
+            <label for="male">Male</label>
+            <input type="radio" name="gender" value="male" id="male" />
+          </div>
+          <div>
+            <label for="female">Female</label>
+            <input type="radio" name="gender" value="female" id="female" />
+          </div>
+          <div>
+            <label for="other">Other</label>
+            <input type="radio" name="gender" value="other" id="other" />
+          </div>
+        </div>
+        <div>
+          <label for="height">Height</label>
+          <select name="height" id="height">
+            <option value="1.4-1.6m">1.4 - 1.6 Meters</option>
+            <option value="1.7-1.8m">1.7 - 1.8 Meters</option>
+            <option value="1.9-2m">1.9 - 2 Meters</option>
+            <option value="above-2">Above 2 Meters</option>
+          </select>
+        </div>
+        <div>
+          <label for="bio">Tell us about yourself</label>
+          <textarea
+            name="bio"
+            id="bio"
+            cols="30"
+            rows="5"
+            placeholder="My name is..."
+          ></textarea>
+        </div>
+        <div>
+          <label for="resume">Please upload your resume</label>
+          <input id="resume" type="file" name="" id="" />
+        </div>
+        <div>
+          <label for="phone">Phone number</label>
+          <input type="tel" name="phone" id="phone" />
+        </div>
+        <input type="submit" value="Send info!" />
+        <input type="reset" value="Reset form" />
+      </form>
+    </div>
+    <div style="width: 400px; margin: 0 auto">
+      <div
+        style="
+          display: inline-block;
+          height: 100px;
+          width: 50px;
+          background-color: blue;
+        "
+      ></div>
+      <div
+        style="
+          display: inline-block;
+          height: 100px;
+          width: 50px;
+          background-color: white;
+        "
+      ></div>
+      <div
+        style="
+          display: inline-block;
+          height: 100px;
+          width: 50px;
+          background-color: red;
+        "
+      ></div>
+    </div>
+  </body>
+</html>

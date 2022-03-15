@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 62.5%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.main-section {
+  height: 100vh;
+  background-image: url(Iron-Man-Backgrounds-HD.jpg);
+  background-size: cover;
+  position: relative;
+}
+
+header {
+  background-color: #adb5bd;
+  height: 4rem;
+  display: flex;
+  justify-content: space-around;
+  gap: 80rem;
+  align-items: center;
+}
+
+.logo {
+  height: 3.5rem;
+}
+
+.nav-link:link,
+.nav-link:visited {
+  font-size: 1rem;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+  font-weight: 700;
+  border: 1px solid #000;
+  padding: 0.7rem;
+  border-radius: 10px;
+  background-color: #fab005;
+}
+
+.nav-link:hover,
+.nav-link:active {
+  background-color: #f59f00;
+}
+
+.nav-list {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.main-heading {
+  font-size: 4.8rem;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.main-paragraph {
+  color: #fff;
+  font-size: 1rem;
+}
+
+.heading-div {
+  padding: 2rem;
+  border-radius: 10px;
+  width: 30rem;
+  background-color: rgba(0, 0, 0, 0.185);
+  position: absolute;
+  top: 5%;
+  left: 51%;
+}
+
+.footer-info img {
+  height: 3rem;
+}
