@@ -12,60 +12,62 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main class="login">
-      <h1 class="main-heading">Log In</h1>
-      <form>
-        <div>
-          <input
-            class="input-box"
-            type="email"
-            placeholder="email"
-            required
-            name="email"
-          />
-        </div>
-        <div>
-          <input
-            class="input-box"
-            type="password"
-            name="password"
-            placeholder="password"
-          />
-        </div>
-        <div class="forgot-pass-checkbox">
+    <div class="main-container">
+      <main class="login">
+        <h1 class="main-heading">Log In</h1>
+        <form>
           <div>
-            <input type="checkbox" name="remember-me" id="remember-me" />
-            <label for="remember-me">Remember me</label>
+            <input
+              class="input-box"
+              type="email"
+              placeholder="email"
+              required
+              name="email"
+            />
           </div>
-          <a class="forgot-link" href="#">Forgot password?</a>
-        </div>
-        <input class="btn" type="submit" value="log in" />
-      </form>
-      <p class="connect-with"><span>or connect with</span></p>
+          <div>
+            <input
+              class="input-box"
+              type="password"
+              name="password"
+              placeholder="password"
+            />
+          </div>
+          <div class="forgot-pass-checkbox">
+            <div>
+              <input type="checkbox" name="remember-me" id="remember-me" />
+              <label for="remember-me">Remember me</label>
+            </div>
+            <a class="forgot-link" href="#">Forgot password?</a>
+          </div>
+          <input class="btn" type="submit" value="log in" />
+        </form>
+        <p class="connect-with"><span>or connect with</span></p>
 
-      <nav class="list-icons">
-        <li>
-          <a href="#"><i class="fa-brands fa-facebook"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa-brands fa-twitter"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa-brands fa-github"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-        </li>
-      </nav>
-      <span>&copy; 2022</span>
-    </main>
-    <aside>
-      <i class="fa-solid fa-user-plus"></i>
-      <h2>Hello, friend!</h2>
-      <p>Enter your personal details and start a jorney with us</p>
-      <button class="reg-btn">
-        <span>Register</span> <i class="fa-regular fa-circle-right"></i>
-      </button>
-    </aside>
+        <nav class="list-icons">
+          <li>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+          </li>
+        </nav>
+        <span>&copy; 2022</span>
+      </main>
+      <aside>
+        <i class="fa-solid fa-user-plus"></i>
+        <h2>Hello, friend!</h2>
+        <p>Enter your personal details and start a jorney with us</p>
+        <button class="reg-btn">
+          <span>Register</span> <i class="fa-regular fa-circle-right"></i>
+        </button>
+      </aside>
+    </div>
   </body>
 </html>
