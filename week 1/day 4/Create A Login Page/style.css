@@ -75,3 +75,8 @@ body {
 .fa-brands {
   font-size: 1.5rem;
 }
+
+aside {
+  width: 50%;
+  background-color: purple;
+}
