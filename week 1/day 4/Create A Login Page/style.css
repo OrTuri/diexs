@@ -6,35 +6,47 @@
 
 body {
   font-family: sans-serif;
+  display: flex;
+  padding: 10rem 30rem;
 }
 
 .login {
+  padding: 1rem;
   width: 50%;
-  margin: 1rem auto;
+  margin: 0 auto;
   text-align: center;
+  background-color: #e9ecef;
+  color: rgb(128, 128, 128);
 }
 
 .main-heading {
   margin-bottom: 1rem;
   font-size: 2.4rem;
   font-weight: 800;
+  color: rgb(66, 66, 66);
 }
 
 .input-box {
-  border: 1px solid #000;
+  border: none;
   padding: 1rem;
   width: 20rem;
   height: 1rem;
+  border-radius: 5px;
+}
+
+.input-box:focus {
+  outline: 2px solid rgba(162, 83, 236, 0.39);
 }
 
 .input-box:first-child {
   margin-bottom: 1rem;
+  background-color: rgb(211, 211, 211);
 }
 
 .forgot-pass-checkbox {
   display: flex;
   justify-content: center;
-  gap: 4.5rem;
+  gap: 4.2rem;
   align-items: center;
 }
 
@@ -55,12 +67,12 @@ body {
   margin: 0 auto;
   width: 20rem;
   text-align: center;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid rgb(128, 128, 128);
   line-height: 0.1rem;
 }
 
 .connect-with span {
-  background: #fff;
+  background: #e9ecef;
   padding: 0 10px;
 }
 
@@ -74,9 +86,50 @@ body {
 
 .fa-brands {
   font-size: 1.5rem;
+  margin: 1.5rem 0;
+  color: #747474;
 }
 
 aside {
   width: 50%;
-  background-color: purple;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(71, 4, 71),
+    rgb(137, 3, 190)
+  );
+  text-align: center;
+  color: #fff;
+}
+.fa-solid {
+  font-size: 10rem;
+  color: #fff;
+  margin: 2rem 0 2rem 3.5rem;
+}
+
+aside > p {
+  margin: 1.5rem;
+}
+
+.reg-btn {
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: transparent;
+  padding: 15px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.fa-regular {
+  font-size: 1.2rem;
+}
+
+.forgot-link:link,
+.forgot-link:visited {
+  text-decoration: none;
+  color: rgb(128, 128, 128);
+}
+
+#remember-me {
+  transform: scale(1.1);
 }
