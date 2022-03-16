@@ -98,6 +98,11 @@ body {
   font-size: 1.5rem;
   margin: 1.5rem 0;
   color: #747474;
+  transition: all 0.5s;
+}
+
+.fa-brands:hover {
+  transform: rotate(360deg);
 }
 
 aside {
