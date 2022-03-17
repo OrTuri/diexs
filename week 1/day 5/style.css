@@ -173,4 +173,8 @@ body {
     margin-top: 170px;
     gap: 350px;
   }
+
+  .item-container:hover {
+    transform: scale(1.6);
+  }
 }
