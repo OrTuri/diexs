@@ -163,3 +163,14 @@ body {
   color: #fff;
   background-color: #0ca678;
 }
+
+@media screen and (max-width: 760px) {
+  .item-container {
+    transform: scale(1.6);
+  }
+
+  .main-container {
+    margin-top: 170px;
+    gap: 350px;
+  }
+}
