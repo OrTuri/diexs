@@ -10,9 +10,10 @@ body {
 
 .main-container {
   margin: 30px 30px;
-  /* display: flex; */
+  display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .item-container {
@@ -24,6 +25,11 @@ body {
   border-radius: 10px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   position: relative;
+  transition: all 0.3s;
+}
+
+.item-container:hover {
+  transform: scale(1.05);
 }
 
 .item-img {
@@ -51,6 +57,7 @@ body {
 
 .item-img-fig {
   transition: all 0.5s;
+  margin: -10px;
 }
 
 .item-img-fig:hover img {
