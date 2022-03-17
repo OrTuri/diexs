@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.main-container {
+  margin: 30px 30px;
+  /* display: flex; */
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.item-container {
+  width: 220px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.item-img {
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  /* transform: scale(1.1); */
+}
+
+.item-img-fig::before {
+  z-index: 999;
+  text-transform: uppercase;
+  line-height: 50px;
+  display: inline-block;
+  content: "New";
+  text-align: center;
+  font-weight: 800;
+  height: 50px;
+  width: 50px;
+  top: 5px;
+  left: 5px;
+  border-radius: 50%;
+  background-color: #0ca678;
+  position: absolute;
+}
+
+.item-img-fig {
+  transition: all 0.5s;
+}
+
+.item-img-fig:hover img {
+  opacity: 70%;
+}
+
+.item-img-fig::after {
+  text-transform: uppercase;
+  line-height: 50px;
+  display: inline-block;
+  content: "-20%";
+  text-align: center;
+  font-weight: 800;
+  height: 50px;
+  width: 50px;
+  top: 5px;
+  right: 5px;
+  border-radius: 50%;
+  background-color: #c92a2a;
+  position: absolute;
+}
+
+.item-heading {
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.price-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buy-btn {
+  text-align: center;
+  border: 2px solid #adb5bd;
+  background-color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 5px;
+  color: #adb5bd;
+  font-weight: 800;
+  transition: all 0.5s;
+}
+
+.buy-btn:hover {
+  color: #fff;
+  background-color: #0ca678;
+  border: 2px solid #0ca678;
+  transform: scale(1.05);
+}
+
+.price {
+  color: #0ca678;
+  font-size: 18px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #adb5bd;
+}
+
+.price,
+.old-price {
+  font-weight: 700;
+}
+
+.hover-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  justify-content: space-between;
+  position: absolute;
+  top: 30%;
+  right: 50px;
+  gap: 20px;
+  opacity: 0;
+}
+
+.option {
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  background-color: rgb(131, 131, 131);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.item-img-fig:hover .hover-options {
+  opacity: 1;
+}
+
+.option {
+  color: #000;
+  background-color: #fff;
+}
+
+.option:hover {
+  color: #fff;
+  background-color: #0ca678;
+}
