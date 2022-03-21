@@ -1,0 +1,180 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+
+header {
+  width: 100vw;
+  height: 3rem;
+}
+
+.fa-brands {
+  font-size: 3rem;
+  color: rgb(121, 121, 121);
+  margin-left: 1rem;
+}
+
+.ul-nav {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.ul-nav li a:link,
+.ul-nav li a:visited {
+  text-decoration: none;
+  color: #5893af;
+  font-weight: 600;
+}
+
+.number {
+  margin-left: auto;
+}
+
+.btn-sign-in {
+  margin-right: 20px;
+  border: none;
+  padding: 10px 25px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #7e7efa;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.btn-sign-in:hover {
+  background-color: #5858af;
+  transform: scale(1.08);
+}
+
+.section-cta {
+  background-color: #ececec;
+  width: 100%;
+  padding: 5rem;
+}
+
+.title-container {
+  margin: 0 0 3rem 0;
+  padding-top: 3rem;
+  text-align: center;
+}
+
+.main-heading {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #343a40;
+}
+
+.secondary-heading {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  color: #495057;
+  font-weight: 700;
+}
+
+.pricing-for {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #495057;
+}
+
+.pricing-for a {
+  text-decoration: none;
+  color: rgb(125, 210, 250);
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 2px solid #7dd2fa;
+  margin-left: 10px;
+}
+
+.card {
+  text-align: center;
+  max-width: 300px;
+}
+
+.fa-shield {
+  font-size: 2rem;
+}
+
+.card-title {
+  font-size: 2rem;
+}
+
+.card-desc {
+  font-size: 1.2rem;
+}
+
+.plan-price span {
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+.cta-btn-trial {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(116, 184, 116);
+}
+
+.card-cta {
+  background-color: #fff;
+  border-radius: 10px 10px 0 0;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.card-cta > span {
+  font-style: italic;
+}
+
+.card-features {
+  background-color: #167ddd;
+  border-radius: 10px;
+  padding: 30px;
+  transform: translateY(-2%);
+}
+
+.card-features li {
+  color: #fff;
+}
+
+.car .card-features li:first-child {
+  font-weight: 800;
+}
+
+.card-features ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.2rem;
+  text-align: left;
+  margin-left: 1rem;
+  list-style: none;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto, 1fr);
+  gap: 2rem;
+  justify-items: center;
+  max-width: 120rem;
+  margin: 5rem auto;
+}
