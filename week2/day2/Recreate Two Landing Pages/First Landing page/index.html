@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>First Landing page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section>
+      <h1 class="main-heading">Download now</h1>
+      <form class="form">
+        <div class="input">
+          <label for="firstName">First name*</label>
+          <input type="text" name="firstName" placeholder="David" id="firstName" />
+        </div>
+        <div class="input">
+          <label for="lastName">Last name*</label>
+          <input type="text" name="lastName" placeholder="Levy" id="lastName" />
+        </div>
+        <div class="input">
+          <label for="email"
+            >Email*</label
+          >
+          <input type="email" placeholder="example@example.com" name="email" id="email" />
+        </div>
+        <div class="input">
+          <label for="phone">Phone number*</label>
+          <input type="tel" name="phone" placeholder="050-1234567" id="phone" />
+        </div>
+        <div class="input">
+          <label for="website">Website url*</label>
+          <input type="url" placeholder="www.example.com" name="website" id="website" />
+        </div>
+        <div class="input">
+          <label for="company">Company name*</label>
+          <input type="text" name="company" placeholder="Microsoft" id="company" />
+        </div>
+        <div class="input">
+            <label for="employees-num">How many emploees work there?</label>
+          <select name="employees-num" id="employees-num">
+            <option value="20-40">20-40</option>
+            <option value="40-80">40-80</option>
+            <option value="80-100">80-100</option>
+            <option value="100-120">100-120</option>
+            <option value="120-150">120-150</option>
+            <option value="more-than-150">More than 150</option>
+          </select>
+        </div>
+        <div class="services-container">
+        <p class="services">Does your company sell any of the following services: 
+            <ul>
+                <li>
+                    Web design
+                </li>
+                <li>
+                    Online marketing
+                </li>
+                <li>
+                    Seo/sem
+                </li>
+                <li>
+                    Advertising agency services
+                </li>
+            </ul>
+        </p>
+        <select name="services" id="services">
+            <option value="web-design">Web design</option>
+            <option value="online-marketing">Online marketing</option>
+            <option value="seo-sem">Seo/sem</option>
+            <option value="advertising-agency-services">Advertising agency services</option>
+            <option value="part-or-all">Part or all of the above</option>
+        </select>
+    </div>
+    <div class="input">
+        <input type="checkbox" name="subscribe" id="subscribe" />
+        <label for="subscribe">Subscribe to hubspots marketing blog</label>
+        
+</div>
+<input type="submit" value="DOWNLOAD NOW">
+      </form>
+    </section>
+    <footer>
+        <p>Or Turi</p>
+    </footer>
+  </body>
+</html>

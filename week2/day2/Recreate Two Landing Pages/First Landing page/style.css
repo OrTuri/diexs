@@ -1,0 +1,156 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  background-image: url(cheng-feng-5lYOA71KDNM-unsplash.jpg);
+  background-size: cover;
+  color: #fff;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+section {
+  margin: 20px auto;
+  width: 70%;
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0.24);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.main-heading {
+  font-size: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  text-transform: uppercase;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 60%;
+  margin: 0 auto;
+  row-gap: 30px;
+  column-gap: 10px;
+}
+
+input {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  height: 25px;
+  padding: 15px;
+}
+
+.input:nth-child(7) {
+  grid-column: 1 / -1;
+}
+.services-container {
+  grid-column: 1/-1;
+  width: 100%;
+}
+
+.services-container > p {
+  margin-bottom: 10px;
+}
+
+ul {
+  margin-bottom: 10px;
+}
+
+.input:nth-child(9) {
+  grid-column: 1 / -1;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+}
+
+ul {
+  list-style: inside;
+}
+
+.input:nth-child(9) {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+
+.input:nth-child(9) > input {
+  width: auto;
+  transform: scale(1.2);
+}
+
+form > input:last-child {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 20px;
+  line-height: 1px;
+  justify-self: center;
+  width: 300px;
+  border: none;
+  color: #fff;
+  background-color: #48abfb;
+  cursor: pointer;
+  transition: all 0.5s;
+  font-weight: 600;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+form > input:last-child:hover {
+  transform: scale(1.05);
+  background-color: #3a89c9;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (max-width: 1200px) {
+  .form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 780px) {
+  .form {
+    grid-template-columns: 1fr;
+    width: fit-content;
+  }
+
+  section {
+    width: fit-content;
+  }
+}
+
+@media screen and (min-width: 1900px) {
+  section {
+    height: 900px;
+  }
+
+  .form {
+    height: 100%;
+  }
+}
+
+input:focus {
+  outline: 2px solid #7f96ff;
+}
+
+footer p {
+  font-weight: 600;
+  text-align: center;
+}

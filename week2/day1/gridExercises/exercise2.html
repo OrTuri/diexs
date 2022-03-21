@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        height: 90vh;
+        width: 90vw;
+        margin: auto;
+        border: 2px solid #000;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+          "header header header"
+          "hero main-content main-content"
+          "sidebar extra extra"
+          "related-img related-img related-post"
+          "footer footer footer";
+        gap: 20px;
+        padding: 10px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.274);
+      }
+
+      .box {
+        border: 1px solid #000;
+        font-size: 5vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: sans-serif;
+        color: #fff;
+        text-shadow: 5px 5px 3px rgba(0, 0, 0, 0.301);
+      }
+
+      .header {
+        background-color: rgb(106, 186, 240);
+        grid-area: header;
+      }
+
+      .hero {
+        background-color: rgb(215, 211, 241);
+        grid-area: hero;
+      }
+
+      .main-content {
+        background-color: rgb(246, 246, 140);
+        grid-area: main-content;
+      }
+
+      .sidebar {
+        background-color: rgb(86, 212, 170);
+        grid-area: sidebar;
+      }
+
+      .extra {
+        background-color: rgb(161, 161, 161);
+        grid-area: extra;
+      }
+
+      .related-img {
+        background-color: green;
+        grid-area: related-img;
+      }
+
+      .related-post {
+        background-color: rgb(235, 208, 212);
+        grid-area: related-post;
+      }
+
+      .footer {
+        background-color: rgb(248, 182, 106);
+        grid-area: footer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header box">Header</div>
+      <div class="hero box">Hero</div>
+      <div class="main-content box">Main content</div>
+      <div class="sidebar box">Sidebar</div>
+      <div class="extra box">Extra content</div>
+      <div class="related-img box">Related images</div>
+      <div class="related-post box">Related posts</div>
+      <div class="footer box">Footer</div>
+    </div>
+  </body>
+</html>

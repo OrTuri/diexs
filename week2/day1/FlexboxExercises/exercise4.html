@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        height: 80vh;
+        border: 1px solid #000;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .box:first-child,
+      .box:last-child {
+        background-color: rgb(231, 167, 167);
+        height: 25%;
+        width: 75%;
+      }
+
+      .box:nth-child(2) {
+        background-color: rgb(231, 167, 167);
+        align-self: center;
+        height: 25%;
+        width: 100%;
+      }
+
+      .box {
+        font-size: 20vh;
+        color: white;
+        font-family: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box box">1</div>
+      <div class="box box">2</div>
+      <div class="box box">3</div>
+    </div>
+  </body>
+</html>

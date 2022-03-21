@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        border: 2px solid #000;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: sans-serif;
+        font-weight: 800;
+        /* padding: 0 20px; */
+      }
+
+      .box1 {
+        background-color: rgb(124, 133, 253);
+      }
+      .box2 {
+        background-color: rgb(122, 195, 255);
+      }
+      .box3 {
+        background-color: rgb(231, 167, 167);
+      }
+
+      .box {
+        flex: 0.33;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        padding: 20px 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box box1">Logo</div>
+      <div class="box box2">Team</div>
+      <div class="box box3">Products</div>
+    </div>
+  </body>
+</html>
