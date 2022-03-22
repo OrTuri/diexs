@@ -1,0 +1,27 @@
+.box {
+  width: 70px;
+  height: 70px;
+  background-color: yellow;
+  border: 1px solid #000;
+}
+
+.box-container {
+  width: 1000px;
+  margin: 60px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  row-gap: 20px;
+  align-items: center;
+}
+
+.horizontal-boxes {
+  display: flex;
+  gap: 50px;
+}
+
+.vertical-boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
