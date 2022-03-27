@@ -15,4 +15,34 @@ body {
 .card {
   max-width: 500px;
   max-height: 1000px;
+  /* position: relative; */
+}
+
+.badge1 {
+  border-radius: 5px;
+  padding: 5px;
+  transition: all 0.5s;
+  display: inline-block;
+}
+
+.badge1:hover {
+  display: inline-block;
+  transform: rotate(-10deg);
+  color: #fff;
+}
+
+.nav-link-contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.btn-outline-primary {
+  color: pink;
+  border-color: pink;
+}
+.btn-outline-primary:hover {
+  background-color: rgb(255, 143, 161);
+  border-color: pink;
 }

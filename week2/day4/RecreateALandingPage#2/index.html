@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100 w-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/f88060477c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="h-100 w-100">
+    <header class="w-100 h-75 rounded-bottom">
+      <div class="container padding-bottom">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#"
+              ><span class="fw-bold text-uppercase fs-3">Intense</span>
+              <span class="fs-5 text-success fs-5">job Board</span></a
+            >
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-5">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Find a job</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Post a job</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Pages</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Blog</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Login</a>
+                </li>
+                <span class="text-secondary d-block m-auto">or</span>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Register</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div class="text-white p-4 text-center">
+          <h1 class="display-5 fw-bold mb-5">Build Your Future</h1>
+          <p class="lead fw-bold mb-5">
+            We offer <span class="text-success">2,989</span> job vacancies now!
+          </p>
+        </div>
+        <form class="mb-3 row justify-content-center gap-2">
+          <div class="col-12 col-lg-4 w-auto">
+            <input
+              class="form-control m-auto"
+              type="text"
+              placeholder="Job title, skills or company"
+              aria-label="default input example"
+              style="width: 250px !important"
+            />
+          </div>
+          <div class="col-12 col-lg-4 w-auto">
+            <select
+              class="form-select m-auto"
+              aria-label="Default select example"
+              style="width: 250px !important"
+            >
+              <option selected>City or state</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="col-12 col-lg-4 w-auto">
+            <button
+              type="submit"
+              class="btn btn-success text-uppercase fw-bold btn-find-job m-auto d-block"
+              style="width: 100px !important"
+            >
+              Find job
+            </button>
+          </div>
+        </form>
+      </div>
+    </header>
+    <section class="px-3 px-lg-0 mt-3 mt-sm-0">
+      <div class="card-group text-white">
+        <div class="card bg-success align-items-center p-3">
+          <i class="fa-solid fa-briefcase-medical display-5"></i>
+          <div class="card-body">
+            <h5 class="card-title">Healthcare</h5>
+          </div>
+        </div>
+        <div class="card bg-success align-items-center p-3">
+          <i class="fa-solid fa-car display-5"></i>
+          <div class="card-body">
+            <h5 class="card-title">Automobile jobs</h5>
+          </div>
+        </div>
+        <div class="card bg-success align-items-center p-3">
+          <i class="fa-solid fa-building display-5"></i>
+          <div class="card-body">
+            <h5 class="card-title">Construction</h5>
+          </div>
+        </div>
+        <div class="card bg-success align-items-center p-3">
+          <i class="fa-solid fa-utensils display-5"></i>
+          <div class="card-body">
+            <h5 class="card-title">Food Service</h5>
+          </div>
+        </div>
+        <div class="card bg-success align-items-center p-3">
+          <i class="fa-solid fa-earth-africa display-5"></i>
+          <div class="card-body">
+            <h5 class="card-title">Logistics</h5>
+          </div>
+        </div>
+        <div class="card bg-success align-items-center p-3">
+          <i class="fa-solid fa-money-bill display-5"></i>
+          <div class="card-body">
+            <h5 class="card-title">Finance</h5>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="container">
+      <h2 class="text-center display-3 fw-bold mt-5 mb-4">Latest jobs</h2>
+      <table class="table table-hover">
+        <thead>
+
+        </thead>
+        <tr>
+          <th>Date</th>
+          <th>Company</th>
+          <th>Salary</th>
+          <th>Emplyment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>11.3.2022</td>
+          <td>Microsoft</td>
+          <td>33,276₪</td>
+          <td>Full Time</td>
+        </tr>
+        <tr>
+          <td>17.5.2022</td>
+          <td>LG</td>
+          <td>15,672₪</td>
+          <td>Part Time</td>
+        </tr>
+        <tr>
+          <td>21.9.2021</td>
+          <td>Lenovo</td>
+          <td>11,800₪</td>
+          <td>Full Time</td>
+        </tr>
+        <tr>
+          <td>30.1.2020</td>
+          <td>Apple</td>
+          <td>33,700₪</td>
+          <td>Full Time</td>
+        </tr>
+      </tbody>
+      </table>
+      <button class="btn btn-success d-block m-auto mt-3">View all</button>
+    </section>
+    <section class="bg-light p-5 mt-4">
+      <div class="container">
+        <h3 class="display-3 text-center fw-bold mb-5">Why people choose us</h3>
+        <div class="card-group gap-3">
+          <div class="card border-0 bg-light">
+            <div class="card-body">
+
+              <h5 class="card-title text-uppercase"><i class="fa-solid fa-people-group fs-3 text-success"></i> Verefied employers</h5>
+              <p class="card-text lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum illo, quasi atque quaerat unde ex ipsa modi officia commodi aut.</p>
+            </div>
+          </div>
+          <div class="card border-0 bg-light">
+            <div class="card-body">
+
+              <h5 class="card-title text-uppercase"><i class="fa-solid fa-chart-column fs-3 text-success"></i> demanded vacancies</h5>
+              <p class="card-text lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum illo, quasi atque quaerat unde ex ipsa modi officia commodi aut.</p>
+            </div>
+          </div>
+          <div class="card border-0 bg-light">
+            <div class="card-body">
+
+              <h5 class="card-title text-uppercase"><i class="fa-solid fa-calendar-days fs-3 text-success"></i> emplyment blog</h5>
+              <p class="card-text lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum illo, quasi atque quaerat unde ex ipsa modi officia commodi aut.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+.section-hero {
+  height: 100vh;
+  background-image: url("assets/omer-salom-LoijtQXXNhs-unsplash.jpg");
+  background-size: cover;
+}
+
+.card-box {
+  height: 60px;
+  width: 60px;
+}
+
+.blur-fig {
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.blur-fig img {
+  filter: blur(3px);
+  filter: grayscale(1);
+  transition: all 0.5s;
+  object-fit: cover;
+}
+
+.blur-fig h3 {
+  font-size: 40px;
+  transition: all 0.5s;
+}
+
+.blur-fig-div:hover .blur-fig h3 {
+  font-size: 35px;
+}
+
+.blur-fig-div:hover .blur-fig img {
+  transform: scale(1.2);
+  filter: blur(0);
+  filter: grayscale(0);
+}
+
+@media (max-width: 991px) {
+  header {
+    background-color: #dc3545;
+  }
+}
+
+.scroll header {
+  background-color: #dc3545;
+}
+
+header {
+  transition: all 0.5s ease-in;
+}
+
+.section-hero {
+  transition: all 0.5s;
+}
+
+.scroll .section-hero {
+  transform: scale(0.98);
+}
