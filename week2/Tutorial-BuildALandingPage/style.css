@@ -42,12 +42,96 @@
   }
 }
 
-.scroll header {
-  background-color: #dc3545;
-}
+/* @keyframes header-animation {
+  5% {
+    transform: translateX(-10%);
+    background-color: transparent;
+  }
+  10% {
+    transform: translateX(-20%);
+    background-color: transparent;
+  }
+  15% {
+    transform: translateX(-30%);
+    background-color: transparent;
+  }
+  20% {
+    transform: translateX(-40%);
+    background-color: transparent;
+  }
+  25% {
+    transform: translateX(-50%);
+    background-color: transparent;
+  }
+  30% {
+    transform: translateX(-60%);
+    background-color: transparent;
+  }
+  35% {
+    transform: translateX(-70%);
+    background-color: transparent;
+  }
+  40% {
+    transform: translateX(-80%);
+    background-color: transparent;
+  }
+  45% {
+    transform: translateX(-90%);
+    background-color: transparent;
+  }
+  50% {
+    transform: translateX(-100%);
+    background-color: transparent;
+  }
+  55% {
+    transform: translateX(-90%);
+    background-color: hsla(354, 70%, 54%, 0.1);
+  }
+  60% {
+    transform: translateX(-80%);
+    background-color: hsla(354, 70%, 54%, 0.2);
+  }
+  65% {
+    transform: translateX(-70%);
+    background-color: hsla(354, 70%, 54%, 0.3);
+  }
+  70% {
+    transform: translateX(-60%);
+    background-color: hsla(354, 70%, 54%, 0.4);
+  }
+  75% {
+    transform: translateX(-50%);
+    background-color: hsla(354, 70%, 54%, 0.5);
+  }
+  80% {
+    transform: translateX(-40%);
+    background-color: hsla(354, 70%, 54%, 0.6);
+  }
+  85% {
+    transform: translateX(-30%);
+    background-color: hsla(354, 70%, 54%, 0.7);
+  }
+  90% {
+    transform: translateX(-20%);
+    background-color: hsla(354, 70%, 54%, 0.8);
+  }
+  95% {
+    transform: translateX(-10%);
+    background-color: hsla(354, 70%, 54%, 0.9);
+  }
+  100% {
+    transform: translateX(0);
+    background-color: #dc3545;
+  }
+} */
 
 header {
-  transition: all 0.5s ease-in;
+  transition: all 1s;
+}
+
+.scroll header {
+  animation: header-animation 0.3s ease-in-out;
+  background-color: #dc3545;
 }
 
 .section-hero {
