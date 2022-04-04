@@ -9,6 +9,9 @@ people[people.indexOf("James")] = "Jason"; // 2
 people.push("Or"); // 3
 console.log(`Marry's index is ${people.indexOf("Mary")}`); // 4
 let peopleCopy = people.slice(people.indexOf("Mary") + 1, people.indexOf("Or")); // 5
+const peopleCopy2 = people.slice(0, people.length);
+peopleCopy2.splice(peopleCopy2.indexOf("Mary"), 1);
+peopleCopy2.splice(peopleCopy2.indexOf("Or"), 1);
 console.log(peopleCopy.indexOf("foo")); // 6 // It returns -1 because the value of "foo" does not exist in the array. -1 means that it couldn't find it.
 let last = people[people.length - 1]; // 7
 
@@ -147,3 +150,4 @@ names.forEach((item) => {
   secretName += item[0];
 });
 console.log(secretName);
+
