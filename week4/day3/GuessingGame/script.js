@@ -1,54 +1,52 @@
 "use strict";
-// Exercise 1 : Play A Guessing Game
-// First part
-
-function playTheGame() {
-  const userConfirm = confirm("Would you like to play the game?");
-  let userNum;
-  let computerNum;
-  if (!userConfirm) alert("No problems! Goodbye! 🖐️");
-  else {
-    userNum = Number(prompt("Please enter a number between 0 and 10"));
-    if (isNaN(userNum) || userNum < 0 || userNum > 10)
-      alert("This is not a valid number! Goodbye! 🥺");
-    else {
-      computerNum = Math.trunc(Math.random() * 11);
-      console.log(userNum, computerNum);
-    }
+function askUserNumber() {
+  let number = Number(prompt("Please enter a number between 1 and 10"));
+  if (!numberCheck(number)) {
+    askUserNumber();
   }
-  test(userNum, computerNum);
+  return number;
 }
-
-function test(userNum, computerNum) {
-  let attempts = 0,
-    won;
-  if (userNum === computerNum) {
-    alert("Winner! 🥳🎈🥂🎆🎆🎇🎇");
+function numberCheck(number) {
+  if (isNaN(number)) {
+    alert("You didn't enter a number!");
+  } else if (number < 1 || number > 10) {
+    alert("Your number is not in range!");
+  } else return true;
+}
+function test(randomNumber, userNumber) {
+  if (randomNumber === userNumber) {
+    alert("You won the game! 🍾🎈🎇🎆🥂");
+    return true;
+  } else if (userNumber > randomNumber) {
+    alert("Your guess is too high ☝️");
   } else {
-    while (attempts < 2) {
-      attempts++;
-      if (userNum > computerNum) {
-        userNum = Number(
-          prompt(
-            "Your number is bigger than the computer number\nPlease enter a new number and try again! 🙂"
-          )
-        );
-      } else if (userNum < computerNum) {
-        userNum = Number(
-          prompt(
-            "Your number is smaller than the computer number\nPlease enter a new number and try again! 🙂"
-          )
-        );
-      }
-      if (userNum === computerNum) {
-        alert("Winner! 🥳🎈🥂🎆🎆🎇🎇");
-        won = true;
+    alert("Your guess is too low 👇");
+  }
+}
+function playTheGame() {
+  const userConfirm = confirm("Do you want to play the game?");
+  if (userConfirm) {
+    const randomNumber = Math.trunc(Math.random() * (10 - 1) + 1);
+    let chances = 3;
+    console.log("random number", randomNumber);
+    let userNumber = askUserNumber();
+    let testResult = test(randomNumber, userNumber);
+    while (!testResult) {
+      if (!testResult && chances) {
+        chances--;
+        if (chances) {
+          alert(
+            `You have ${chances} more ${chances > 1 ? "chances" : "chance"}!`
+          );
+          userNumber = askUserNumber();
+          testResult = test(randomNumber, userNumber);
+        }
+      } else {
+        alert("Game over! You lose! ☹️☹️☹️");
         break;
       }
     }
+  } else {
+    alert("Okay! Goodbye! 👋");
   }
-
-  console.log(`Attempts: ${attempts}`);
-
-  if (attempts > 1 && !won) alert("You ran out of attempts! Game over! 😩");
 }
