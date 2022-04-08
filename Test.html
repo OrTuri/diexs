@@ -1,11 +1,68 @@
 <html>
   <body>
-    <p id="text">DOM Attributes! Yeahhh !!</p>
+    <table id="sampleTable" border="1">
+      <tr>
+        <td>Row1 cell1</td>
+        <td>Row1 cell2</td>
+      </tr>
+      <tr>
+        <td>Row2 cell1</td>
+        <td>Row2 cell2</td>
+      </tr>
+    </table>
+
+    <input
+      class="button"
+      type="button"
+      onclick="insertRow()"
+      value="Insert row"
+    />
+    <div class="divTest">
+      <button id="jsstyle">Style</button>
+    </div>
+    <form action="" class="form" name="myForm" title="formm">
+      <input class="input" type="text" value="" />
+      <input type="email" name="" id="" value="23" />
+    </form>
     <script>
-      const text = document.querySelector("#text");
-      text.style.backgroundColor = "red";
-      text.style.textAlign = "center";
-      text.style.fontSize = "30px";
+      function insertRow() {
+        let tbody = document.querySelector("tbody");
+        let row = document.createElement("tr");
+        tbody.append(row);
+        let td = document.createElement("td");
+        td.append(document.createTextNode("1"));
+        row.append(td);
+        td = document.createElement("td");
+        td.append(document.createTextNode("2"));
+        row.append(td);
+        tbody.style.textAlign = "center";
+      }
+
+      document.querySelector(".button").addEventListener("click", function (e) {
+        console.log(this);
+        console.log(e.target);
+      });
+
+      document.getElementById("jsstyle").addEventListener("mouseover", (e) => {
+        let btn = document.getElementById("jsstyle");
+        btn.style.backgroundColor = "red";
+        btn.style.border = "none";
+        btn.style.borderRadius = "20px";
+        btn.style.fontSize = "20px";
+        // alert("btn alert");
+        e.stopPropagation();
+      });
+      document.querySelector(".divTest").addEventListener("mouseover", (e) => {
+        // alert("div alert");
+      });
+      let h1 = document.createElement("h1");
+      document.body.append(h1);
+      document.querySelector(".input").addEventListener("input", (e) => {
+        // let textNode = document.createTextNode(e.target.value);
+        // h1.append(textNode);
+        h1.textContent = e.target.value;
+        h1.style.display = "inline";
+      });
     </script>
   </body>
 </html>
