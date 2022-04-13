@@ -77,14 +77,13 @@ function error() {
 function input() {
   const year = Number(prompt("Please enter a valid year"));
   const month = Number(prompt("Please enter a valid month"));
-  while (isNaN(year) || !(String(year).length === 4)) {
+  if (isNaN(year) || !(String(year).length === 4)) {
     error();
+    return;
   }
-  while (
-    isNaN(month) ||
-    !(String(month).length < 3 && String(month).length > 0)
-  ) {
+  if (isNaN(month) || !(String(month).length < 3 && String(month).length > 0)) {
     error();
+    return;
   }
   createCalendar(year, month);
 }

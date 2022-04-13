@@ -1,23 +1,79 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
   <body>
-    <form name="myForm" class="form" onsubmit="submit()">
-      <label for="firstName">First name:</label>
-      <input id="firstName" type="text" required placeholder="John" /><br />
-      <label for="lastName">Last name:</label>
-      <input id="lastName" type="text" placeholder="Doe" required /><br />
-      <label for="gender">Gender:</label>
-      <span>Male</span
-      ><input required name="gender" value="male" type="radio" />
-      <span>Female</span
-      ><input required name="gender" value="female" type="radio" />
-      <span>Other</span
-      ><input required name="gender" value="other" type="radio" /><br />
-      <input type="submit" name="submitBtn" id="submitBtn" />
-    </form>
+    <div
+      draggable="true"
+      class="box box1"
+      style="
+        z-index: 999;
+        position: fixed;
+        border-radius: 20px;
+        width: 150px;
+        height: 150px;
+        background-color: rgb(88, 134, 134);
+      "
+    ></div>
+    <div
+      draggable="true"
+      class="box box2"
+      style="
+        z-index: 999;
+        left: 160px;
+        position: fixed;
+        border-radius: 20px;
+        width: 150px;
+        height: 150px;
+        background-color: rgb(130, 85, 85);
+      "
+    ></div>
+    <div
+      class="container"
+      style="
+        width: 400px;
+        height: 400px;
+        border: 5px solid #000;
+        margin: 50px auto;
+      "
+    ></div>
     <script>
-      let form = document.querySelector(".form");
-      let submitBtn = document.querySelector("#submitBtn");
-      form.addEventListener("submit", (e) => {
+      const box = document.querySelectorAll(".box");
+      const container = document.querySelector(".container");
+      container.style.transition = "all 0.5s";
+      let elementClickPosX;
+      let elementClickPosY;
+      box.forEach((box) => {
+        box.addEventListener("dragstart", function (e) {
+          elementClickPosX = e.clientX - e.target.offsetLeft;
+          elementClickPosY = e.clientY - e.target.offsetTop;
+          setTimeout(() => {
+            e.target.style.visibility = "hidden";
+          }, 0);
+          e.dataTransfer.setData("text", e.target.className);
+        });
+        box.addEventListener("dragend", function (e) {
+          this.style.visibility = "visible";
+          e.target.style.top = `${e.clientY - elementClickPosY}px`;
+          e.target.style.left = `${e.clientX - elementClickPosX}px`;
+        });
+      });
+      container.addEventListener("dragenter", function (e) {
+        e.preventDefault();
+        e.target.style.transform = "scale(1.1)";
+      });
+      container.addEventListener("dragleave", function (e) {
+        e.preventDefault();
+        e.target.style.transform = "scale(1)";
+      });
+      container.addEventListener("drop", function (e) {
+        console.log(e.dataTransfer.getData("text"));
+      });
+      container.addEventListener("dragover", (e) => {
         e.preventDefault();
       });
     </script>
