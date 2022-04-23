@@ -67,7 +67,7 @@ const winBattle = () => {
 
 //2 + 3
 
-let experiencePoints = winBattle() ? 10 : 1;
+const experiencePoints = winBattle() ? 10 : 1;
 
 // 4
 
@@ -81,7 +81,7 @@ const isString = (value) => {
 
 // Exercise 4 : Colors
 
-let colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
 
 // 1
 
@@ -95,8 +95,8 @@ console.log(colors.includes("Violet") ? "Yeah" : "No");
 
 // Exercise 5 : Colors #2
 
-let color = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
-let ordinal = ["th", "st", "nd", "rd"];
+const color = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+const ordinal = ["th", "st", "nd", "rd"];
 
 color.forEach((color, i) => {
   console.log(
@@ -111,11 +111,11 @@ let bankAmount = 20000;
 
 // 2
 
-let vat = 0.17;
+const vat = 0.17;
 
 // 3
 
-let details = [+1870, -1566, +976, -1433, -487, +2741];
+const details = [+1870, -1566, +976, -1433, -487, +2741];
 
 // 4
 
