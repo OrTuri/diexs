@@ -1,0 +1,21 @@
+@keyframes animation1 {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: 100vw;
+    transform: translateX(-100%);
+  }
+}
+
+h1 {
+  font-size: 40px;
+  font-family: sans-serif;
+  animation: animation1 2s linear;
+  display: inline;
+  font-size: 20px;
+  position: absolute;
+  left: 100vw;
+  transform: translateX(-100%);
+}
