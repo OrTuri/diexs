@@ -1,0 +1,31 @@
+.quotes-container {
+  min-height: 350px;
+}
+
+.section-quotes,
+.input-quotes-section,
+.section-stats,
+.section-search {
+  max-width: 600px;
+  /* border: 1px solid #000; */
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.083);
+}
+
+.blockquote {
+  max-width: 500px;
+}
+
+.quote-figue {
+  height: 150px;
+}
+
+.like-btn-red {
+  color: rgb(235, 125, 125);
+}
+
+.fa-heart:hover {
+  cursor: pointer;
+  color: rgb(235, 125, 125);
+}

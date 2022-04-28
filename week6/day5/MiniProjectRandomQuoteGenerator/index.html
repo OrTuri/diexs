@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quotes</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/f88060477c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="section-quotes m-lg-auto mt-lg-4 m-3 text-center">
+      <h1 class="text-center display-3 mb-4">Quotes generator</h1>
+      <figure class="text-center my-5 quote-figue">
+        <blockquote class="blockquote">
+          <p class="fs-3 fst-italic d-inline-block">
+            <i class="fa-solid fa-quote-left me-1 fs-2"></i>
+            <span class="quote"> A quote will be placed here!</span
+            ><i class="fa-solid fa-quote-right ms-2 fs-2"></i>
+          </p>
+        </blockquote>
+        <figcaption class="blockquote-footer fs-6 fst-italic author-name mt-2">
+          Author name
+        </figcaption>
+      </figure>
+      <i class="fa-solid fa-heart text-center fs-3 mb-3 like-btn"></i>
+
+      <button
+        class="btn btn-primary m-auto d-block fw-bold generate-btn mt-2 mt-lg-0"
+      >
+        Generate Quote
+      </button>
+    </section>
+    <section class="section-stats m-lg-auto mt-lg-4 m-3">
+      <h3 class="text-center display-6 mb-4">Quotes statistics</h3>
+      <div class="stats-btn-container row gap-2">
+        <button
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseSpace"
+          class="btn btn-danger d-block m-auto mb-2 col-lg-7 btn-char-space"
+        >
+          Number of characters (space included)
+        </button>
+        <div
+          class="collapse collapse-space col-lg-8 m-auto mb-4 lead"
+          id="collapseSpace"
+        >
+          <div class="card card-body">
+            Some placeholder content for the collapse component. This panel is
+            hidden by default but revealed when the user activates the relevant
+            trigger.
+          </div>
+        </div>
+        <button
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseNoSpace"
+          class="btn btn-danger d-block m-auto mb-2 col-lg-7 btn-char-no-space"
+        >
+          Number of characters (space not included)
+        </button>
+        <div
+          class="collapse collapse-no-space col-lg-8 m-auto mb-4 lead"
+          id="collapseNoSpace"
+        >
+          <div class="card card-body">
+            Some placeholder content for the collapse component. This panel is
+            hidden by default but revealed when the user activates the relevant
+            trigger.
+          </div>
+        </div>
+
+        <button
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseWord"
+          class="btn btn-danger d-block m-auto mb-2 col-lg-7 btn-word"
+        >
+          Number of words
+        </button>
+        <div
+          class="collapse collapse-word col-lg-8 m-auto mb-4 lead"
+          id="collapseWord"
+        >
+          <div class="card card-body">
+            Some placeholder content for the collapse component. This panel is
+            hidden by default but revealed when the user activates the relevant
+            trigger.
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="input-quotes-section m-lg-auto mt-lg-4 m-3">
+      <h3 class="text-center display-6 mb-4">Add quotes</h3>
+      <form name="quoteForm">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Author name</label
+          >
+          <input
+            name="authorInput"
+            type="text"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="Enter the author name"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label"
+            >Quote</label
+          >
+          <textarea
+            name="quoteInput"
+            placeholder="Enter a quote"
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="2"
+          ></textarea>
+          <button
+            name="submitBtn"
+            class="btn btn-success mt-3 d-block m-auto fw-bold"
+          >
+            Add quote
+          </button>
+        </div>
+      </form>
+    </section>
+    <section class="section-search m-lg-auto mt-lg-4 mb-lg-4 m-3">
+      <h3 class="text-center display-6 mb-5">Search</h3>
+      <form name="searchForm">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Search by author</label
+          >
+          <input
+            name="authorSearchInput"
+            type="text"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="Enter the author name"
+          />
+        </div>
+        <div class="mb-3">
+          <div
+            id="my-alert"
+            class="alert fade show alert-danger d-none align-items-center search-alert"
+            role="alert"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+              viewBox="0 0 16 16"
+              role="img"
+              aria-label="Warning:"
+            >
+              <path
+                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+              />
+            </svg>
+            <div>You need to fill the field first!</div>
+          </div>
+          <button
+            name="submitBtn"
+            class="btn btn-success my-3 d-block m-auto fw-bold"
+          >
+            Search
+          </button>
+          <div class="collapse lead collapse-search-2" id="collapseSearch">
+            <div class="card card-body">
+              <ul class="collapse-search"></ul>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+    <script src="./script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

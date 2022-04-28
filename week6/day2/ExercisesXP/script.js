@@ -75,9 +75,7 @@ console.log(experiencePoints);
 
 // Exercise 3 : Is It A String ?
 
-const isString = (value) => {
-  return typeof value === "string" ? true : false;
-};
+const isString = (value) => (typeof value === "string" ? true : false);
 
 // Exercise 4 : Colors
 
@@ -100,7 +98,7 @@ const ordinal = ["th", "st", "nd", "rd"];
 
 color.forEach((color, i) => {
   console.log(
-    `${i + 1 + (i < 3 ? ordinal[i + 1] : ordinal[0])} choice color is ${color}`
+    `${i + 1}${i < 3 ? ordinal[i + 1] : ordinal[0]} choice color is ${color}`
   );
 });
 
@@ -117,13 +115,12 @@ const vat = 0.17;
 
 const details = [+1870, -1566, +976, -1433, -487, +2741];
 
-// 4
+// 4 + 5
 
-let detailsAfterVat = details.map((movement) => {
+// let detailsAfterVat = details.map();
+let addVat = (movement) => {
   return movement * vat + movement;
-});
+};
 
-// 5
-
-let detailsAfterVatSum = detailsAfterVat.reduce((a, b) => a + b, 0);
-console.log(`Current bank account: ${bankAmount + detailsAfterVatSum}`);
+let detailsAfterVatSum = details.reduce((a, b) => a + addVat(b), bankAmount);
+console.log(`Current bank account: ${detailsAfterVatSum}`);
