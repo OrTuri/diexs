@@ -29,3 +29,8 @@
   cursor: pointer;
   color: rgb(235, 125, 125);
 }
+
+.collapse-search {
+  list-style: none;
+  height: 120px;
+}

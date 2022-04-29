@@ -68,6 +68,8 @@ const likeBtn = document.querySelector(".like-btn");
 const searchForm = document.forms.searchForm;
 const searchFormInput = document.forms.searchForm.authorSearchInput;
 const collapseSearch = document.querySelector(".collapse-search");
+const searchBtnNext = document.querySelector(".search-btn-next");
+const searchBtnPrev = document.querySelector(".search-btn-prev");
 let currentQuote = -1;
 const moveQuotes = () => {
   currentQuote++;
@@ -76,10 +78,6 @@ const moveQuotes = () => {
   authorName.textContent = quotes[currentQuote].author;
 };
 moveQuotes();
-// const pushQuotesToLocalStorage = () => {
-//   localStorage.setItem("data", JSON.stringify(quotes));
-// };
-// pushQuotesToLocalStorage();
 function checkLikeBtn() {
   if (quotes[currentQuote]?.like) {
     likeBtn.classList.add("like-btn-red");
@@ -87,9 +85,20 @@ function checkLikeBtn() {
     likeBtn.classList.remove("like-btn-red");
   }
 }
+function refreshStats() {
+  collapseSpace.textContent = `The number charcters in the current quote (including space) is: ${quotes[currentQuote].quote.length} charcters`;
+
+  collapseNoSpace.textContent = `The number charcters in the current quote (NOT including space) is: ${
+    quotes[currentQuote].quote.replaceAll(" ", "").length
+  } charcters`;
+  collapseWord.textContent = `The number words in the current quote is: ${
+    quotes[currentQuote].quote.split(" ").length
+  } words`;
+}
 generateBtn.addEventListener("click", function (e) {
   moveQuotes();
   checkLikeBtn();
+  refreshStats();
 });
 quoteForm.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -103,22 +112,8 @@ quoteForm.addEventListener("submit", function (e) {
     formQuote.value = "";
   } else alert("You need to fill all the fields");
 });
-function refreshStats() {}
-
 statsBtnContainer.addEventListener("click", function (e) {
-  if (e.target === btnCharSpace) {
-    collapseSpace.textContent = `The number charcters in the current quote (including space) is: ${quotes[currentQuote].quote.length} charcters`;
-  }
-  if (e.target === btnCharNoSpace) {
-    collapseNoSpace.textContent = `The number charcters in the current quote (NOT including space) is: ${
-      quotes[currentQuote].quote.replaceAll(" ", "").length
-    } charcters`;
-  }
-  if (e.target === btnWord) {
-    collapseWord.textContent = `The number words in the current quote is: ${
-      quotes[currentQuote].quote.split(" ").length
-    } words`;
-  }
+  refreshStats();
 });
 likeBtn.addEventListener("click", function (e) {
   if (quotes[currentQuote]?.like) {
@@ -130,6 +125,8 @@ likeBtn.addEventListener("click", function (e) {
   }
 });
 let collapse = false;
+let currentquote = 0;
+let searchQuotesArr;
 searchForm.addEventListener("submit", function (e) {
   e.preventDefault();
   collapseSearch.textContent = "";
@@ -140,18 +137,43 @@ searchForm.addEventListener("submit", function (e) {
       new bootstrap.Collapse(document.querySelector(".collapse-search-2"));
     }
     collapse = true;
-    quotes.forEach((item) => {
+    searchQuotesArr = quotes.filter((item) => {
       if (
         item.author.toLowerCase().includes(searchFormInput.value.toLowerCase())
       ) {
-        const textNode = `${item.quote} (${item.author})`;
-        const li = document.createElement("li");
-        li.append(textNode);
-        collapseSearch.append(li);
+        return true;
       }
     });
+    if (searchQuotesArr.length !== 0) moveToQuote();
   } else {
     document.querySelector(".search-alert").classList.add("d-flex");
     document.querySelector(".search-alert").classList.remove("d-none");
+  }
+});
+function moveToQuote() {
+  collapseSearch.innerHTML = "";
+  const li = document.createElement("li");
+  let textNode = document.createTextNode(
+    `${searchQuotesArr[currentquote]?.quote} (${searchQuotesArr[currentquote]?.author})`
+  );
+  li.append(textNode);
+  collapseSearch.append(li);
+}
+searchBtnNext.addEventListener("click", function (e) {
+  if (searchQuotesArr.length !== 0) {
+    currentquote++;
+    if (currentquote > searchQuotesArr.length - 1) {
+      currentquote = 0;
+    }
+    moveToQuote();
+  }
+});
+searchBtnPrev.addEventListener("click", function (e) {
+  if (searchQuotesArr.length !== 0) {
+    currentquote--;
+    if (currentquote < 0) {
+      currentquote = searchQuotesArr.length - 1;
+    }
+    moveToQuote();
   }
 });
