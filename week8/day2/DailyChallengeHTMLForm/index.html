@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h3 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <form
+      name="myForm"
+      action=""
+      style="
+        display: flex;
+        gap: 10px;
+        align-items: flex-end;
+        margin: 50px auto;
+        width: 500px;
+      "
+    >
+      <div>
+        <label for="fName">First Name</label><br />
+        <input type="text" name="fName" id="fName" placeholder="First Name " />
+      </div>
+      <div>
+        <label for="lName">Last Name</label><br />
+        <input type="text" name="lName" id="lName" placeholder="Last Name " />
+      </div>
+      <input type="submit" name="submit" id="" />
+    </form>
+    <script>
+      myForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const data = new FormData(this);
+        const dataObject = {};
+        for (let item of data) {
+          dataObject[item[0]] = item[1];
+        }
+        const dataObjectJson = JSON.stringify(dataObject, null, 2);
+        const h3 = document.createElement("h3");
+        h3.append(dataObjectJson);
+        document.body.insertAdjacentElement("beforeend", h3);
+      });
+    </script>
+  </body>
+</html>

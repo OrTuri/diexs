@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="gifContainer" style="width: fit-content; margin: 40px auto">
+      <img class="gifImg" />
+    </div>
+    <script>
+      async function renderRandomGif() {
+        const response = await fetch(
+          "http://api.giphy.com/v1/gifs/random?api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My"
+        );
+        const data = await response.json();
+        const imgElem = document.querySelector(".gifImg");
+        imgElem.src = data.data.images.original.url;
+      }
+      renderRandomGif();
+    </script>
+  </body>
+</html>
