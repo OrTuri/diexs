@@ -56,7 +56,7 @@ const createImg = (imgSource) => {
 const searchGif = async (searchWord) => {
   try {
     const response = await fetch(
-      `http://api.giphy.com/v1/gifs/search?api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My&q=${searchWord}`
+      `https://api.giphy.com/v1/gifs/search?api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My&q=${searchWord}`
     );
     if (response.status !== 200) {
       throw new Error(`Something went wrong!`);
