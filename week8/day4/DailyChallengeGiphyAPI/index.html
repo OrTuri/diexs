@@ -25,9 +25,58 @@
       .gif-div {
         transition: all 1s;
       }
+      .error-msg {
+        background-color: rgb(232, 149, 149);
+        max-width: 300px;
+        max-height: 200px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        border: 1px solid #000;
+        margin: auto;
+        transition: all 0.5s;
+        transform: scale(0);
+      }
+      .error-msg > p {
+        color: #000;
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .error-btn {
+        border: 1px solid #000;
+        transition: all 0.5s;
+      }
+      .error-btn:hover {
+        border: 1px solid #000;
+        transform: scale(1.1);
+      }
+      .shrink {
+        transform: scale(0);
+      }
+      .grow {
+        transform: scale(1);
+      }
+      .wrapper {
+        padding: 50px;
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0);
+        transition: all 0.5s;
+        display: none;
+      }
     </style>
   </head>
-  <body class="p-1">
+  <body>
+    <div class="wrapper">
+      <div class="error-msg">
+        <p>A valid search value can't contain empty string or numbers!</p>
+        <button class="error-btn btn btn-warning">OK</button>
+      </div>
+    </div>
     <form
       class="d-flex gap-2 col-lg-3 p-3 m-auto align-items-center"
       name="searchForm"
@@ -40,7 +89,6 @@
       />
       <button class="btn btn-primary btn-search" type="submit">Search</button>
     </form>
-
     <div
       class="col-lg-3 m-auto alert alert-danger mb-3 d-none alert-before"
       role="alert"

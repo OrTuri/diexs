@@ -61,7 +61,6 @@ const searchGif = async (searchWord) => {
     if (response.status !== 200) {
       throw new Error(`Something went wrong!`);
     }
-    console.log(response);
     const data = await response.json();
     const dataLength = data.data.length;
     const randomGifPosition = randomNum(0, dataLength);
@@ -75,12 +74,29 @@ searchBtn.addEventListener("click", function (e) {
   e.preventDefault();
   if (searchInput.value !== "" && isNaN(Number(searchInput.value))) {
     searchGif(searchInput.value);
-    document.querySelector(".alert").classList.add("d-none");
-    document.querySelector(".alert").classList.add("alert-before");
   } else {
-    document.querySelector(".alert").classList.remove("d-none");
-    setTimeout(() => {
-      document.querySelector(".alert").classList.remove("alert-before");
-    }, 0);
+    errorPopup();
   }
 });
+function errorPopup() {
+  const errorBtn = document.querySelector(".error-btn");
+  const errorMsg = document.querySelector(".error-msg");
+  const wrapper = document.querySelector(".wrapper");
+  wrapper.style.display = "block";
+  errorMsg.style.display = "flex";
+  errorMsg.classList.remove("shrink");
+  setTimeout(() => {
+    errorMsg.classList.add("grow");
+    wrapper.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+  }, 0);
+  //////////////////////////////
+  errorBtn.addEventListener("click", function (e) {
+    errorMsg.classList.add("shrink");
+    errorMsg.classList.remove("grow");
+    wrapper.style.backgroundColor = "rgba(0, 0, 0, 0)";
+    setTimeout(() => {
+      wrapper.style.display = "none";
+      errorMsg.style.display = "none";
+    }, 500);
+  });
+}
