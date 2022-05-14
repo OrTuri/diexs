@@ -4,6 +4,8 @@ const searchInput = form.searchInput;
 const searchBtn = form.searchBtn;
 const cardsContainer = document.querySelector(".cards-container");
 const errorModal = new bootstrap.Modal(document.getElementById("myModal"));
+const tempUnitLabel = document.querySelector(".form-check-label");
+const tempUnitCheckbox = document.querySelector(".form-check-input");
 const weatherCards = localStorage.getItem("data")
   ? JSON.parse(localStorage.getItem("data"))
   : [];
@@ -16,9 +18,12 @@ class WeatherCard {
     this.imgSrc = imgSrc;
     this.createWeatherCard();
     this.removeBtn.addEventListener("click", this.removeCard.bind(this));
+    if (!tempUnitCheckbox.checked) {
+      this.displayTempInFahrenheit(true);
+    }
     weatherCards.push(this);
-    pushDataToLocalStorage(weatherCards);
-    this.arrPosition = weatherCards.length - 1;
+    // pushDataToLocalStorage(weatherCards);
+    // this.arrPosition = weatherCards.length - 1;
   }
   createWeatherCard() {
     const mainCardDiv = document.createElement("div");
@@ -71,14 +76,25 @@ class WeatherCard {
     }, 0);
     this.removeBtn = exitIcon;
     this.card = mainCardDiv;
+    this.tempHolder = degreesH5;
   }
   removeCard() {
     this.card.style.transform = "translateY(-100vh)";
     setTimeout(() => {
       this.card.remove();
     }, 500);
-    weatherCards.splice(this.arrPosition, 1);
-    pushDataToLocalStorage(weatherCards);
+    // weatherCards.splice(this.arrPosition, 1);
+    // pushDataToLocalStorage(weatherCards);
+  }
+  displayTempInFahrenheit(bool) {
+    if (bool) {
+      const fahrenheit = ((this.temp * 9) / 5 + 32).toFixed(1);
+      const htmlFahrenheit = `<h5 class="card-title fs-1 temp-holder">${fahrenheit}<span class="fs-4 higher d-inline-block ms-1">&#8457;</span></h5>`;
+      this.tempHolder.innerHTML = htmlFahrenheit;
+    } else {
+      const htmlCelcius = `<h5 class="card-title fs-1 temp-holder">${this.temp}<span class="fs-4 higher d-inline-block ms-1">&#8451;</span></h5>`;
+      this.tempHolder.innerHTML = htmlCelcius;
+    }
   }
 }
 function pushDataToLocalStorage(data) {
@@ -107,6 +123,15 @@ form.addEventListener("submit", function (e) {
   getWeatherData(searchInput.value, true);
   searchInput.value = "";
 });
-if (weatherCards.length > 0) {
-  weatherCards.forEach((card) => card.createWeatherCard());
-}
+// if (weatherCards.length > 0) {
+//   weatherCards.forEach((card) => card.createWeatherCard());
+// }
+tempUnitCheckbox.addEventListener("input", function (e) {
+  if (tempUnitCheckbox.checked) {
+    tempUnitLabel.textContent = "Celcius";
+    weatherCards.forEach((card) => card.displayTempInFahrenheit(false));
+  } else {
+    tempUnitLabel.textContent = "Fahrenheit";
+    weatherCards.forEach((card) => card.displayTempInFahrenheit(true));
+  }
+});
