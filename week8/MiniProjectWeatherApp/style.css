@@ -19,7 +19,7 @@ html {
 
 .card {
   border-radius: 20px;
-  width: 250px;
+  min-width: 300px;
 }
 
 .navbar {

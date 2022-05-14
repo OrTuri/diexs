@@ -10,12 +10,24 @@ const weatherCards = localStorage.getItem("data")
   ? JSON.parse(localStorage.getItem("data"))
   : [];
 class WeatherCard {
-  constructor(city, temp, country, weatherDescription, imgSrc, fromSearch) {
+  constructor(
+    city,
+    temp,
+    country,
+    weatherDescription,
+    imgSrc,
+    windSpeed,
+    sunrise,
+    sunset
+  ) {
     this.city = city;
     this.country = country;
     this.temp = temp.toFixed(1);
     this.weatherDescription = weatherDescription;
     this.imgSrc = imgSrc;
+    this.windSpeed = windSpeed;
+    this.sunrise = sunrise;
+    this.sunset = sunset;
     this.createWeatherCard();
     this.removeBtn.addEventListener("click", this.removeCard.bind(this));
     if (!tempUnitCheckbox.checked) {
@@ -38,12 +50,55 @@ class WeatherCard {
     const exitIcon = document.createElement("i");
     const degreesTextNode = this.temp;
     const cityTextNode = this.city;
+    const windsContainer = document.createElement("div");
+    const windIcon = document.createElement("img");
+    const windText = document.createElement("p");
+    const sunriseSunsetContainer = document.createElement("div");
+    const sunriseContainer = document.createElement("div");
+    const sunsetContainer = document.createElement("div");
+    const sunriseIcon = document.createElement("img");
+    const sunsetIcon = document.createElement("img");
+    const sunriseText = document.createElement("p");
+    const sunsetText = document.createElement("p");
     mainCardDiv.append(exitIcon);
     mainCardDiv.append(imgIcon);
     mainCardDiv.append(cardBodyDiv);
     cardBodyDiv.append(degreesH5);
     cardBodyDiv.append(cityTitleH5);
     cardBodyDiv.append(weatherDescriptionP);
+    windsContainer.className =
+      "winds d-flex align-items-center justify-content-center gap-2";
+    windIcon.src = "./assets/PngItem_1103283.png";
+    windIcon.className = "mb-3";
+    windIcon.style.width = "30px";
+    windText.className = "lead";
+    windText.textContent = `${this.windSpeed} meter/sec`;
+    windsContainer.insertAdjacentElement("beforeend", windIcon);
+    windsContainer.insertAdjacentElement("beforeend", windText);
+    sunriseSunsetContainer.className =
+      "sunrise-sunset-container d-flex justify-content-between";
+    sunriseContainer.className =
+      "sunrise d-flex align-items-center justify-content-center gap-2";
+    sunsetContainer.className =
+      "sunset d-flex align-items-center justify-content-center gap-2";
+    sunriseIcon.className = "mb-3";
+    sunriseIcon.src = "./assets/sun.png";
+    sunriseIcon.style.width = "30px";
+    sunsetIcon.src = "./assets/crescent-moon.png";
+    sunsetIcon.className = "mb-3";
+    sunsetIcon.style.width = "30px";
+    sunriseText.className = "lead";
+    sunsetText.className = "lead";
+    sunriseText.textContent = this.sunrise;
+    sunsetText.textContent = this.sunset;
+    sunriseContainer.insertAdjacentElement("beforeend", sunriseIcon);
+    sunriseContainer.insertAdjacentElement("beforeend", sunriseText);
+    sunsetContainer.insertAdjacentElement("beforeend", sunsetIcon);
+    sunsetContainer.insertAdjacentElement("beforeend", sunsetText);
+    sunriseSunsetContainer.insertAdjacentElement("beforeend", sunriseContainer);
+    sunriseSunsetContainer.insertAdjacentElement("beforeend", sunsetContainer);
+    cardBodyDiv.append(windsContainer);
+    cardBodyDiv.insertAdjacentElement("beforeend", sunriseSunsetContainer);
     cardBodyDiv.append(linkBtn);
     mainCardDiv.className = "card shadow text-center";
     exitIcon.className =
@@ -112,7 +167,26 @@ async function getWeatherData(city) {
     const weatherDescription = data.weather[0].description;
     const iconId = data.weather[0].icon;
     const imgSrc = `http://openweathermap.org/img/wn/${iconId}@2x.png`;
-    new WeatherCard(dataCity, temp, country, weatherDescription, imgSrc);
+    const windSpeed = data.wind.speed;
+    const sunriseTime = new Date(data.sys.sunrise * 1000).toLocaleTimeString(
+      "en-us",
+      { minute: "2-digit", hour: "2-digit" }
+    );
+    const sunsetTime = new Date(data.sys.sunset * 1000).toLocaleTimeString(
+      "en-us",
+      { minute: "2-digit", hour: "2-digit" }
+    );
+    new WeatherCard(
+      dataCity,
+      temp,
+      country,
+      weatherDescription,
+      imgSrc,
+      windSpeed,
+      sunriseTime,
+      sunsetTime
+    );
+    console.log(sunriseTime);
   } catch (err) {
     console.log(err);
     errorModal.show();
