@@ -1,0 +1,35 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-brand {
+  font-family: "Raleway", sans-serif;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.43);
+}
+
+.weather-icon {
+  width: 120px;
+}
+
+.higher {
+  transform: translate(0, -10px);
+}
+
+.card {
+  border-radius: 20px;
+  width: 250px;
+}
+
+.navbar {
+  border-radius: 15px;
+}
+
+.exit-icon {
+  cursor: pointer;
+}
+
+.modal-content {
+  border-radius: 20px;
+}
