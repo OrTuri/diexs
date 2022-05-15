@@ -53,19 +53,45 @@ const createImg = (imgSource) => {
     });
   }
 };
-const searchGif = async (searchWord) => {
+// Using Fetch
+
+// const searchGif = async (searchWord) => {
+//   try {
+//     const response = await fetch(
+//       `https://api.giphy.com/v1/gifs/search?api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My&q=${searchWord}`
+//     );
+//     if (response.status !== 200) {
+//       throw new Error(`Something went wrong!`);
+//     }
+//     const data = await response.json();
+//     const dataLength = data.data.length;
+//     const randomGifPosition = randomNum(0, dataLength);
+//     const imgUrl = data.data[randomGifPosition]?.images.fixed_height.url;
+//     createImg(imgUrl);
+//   } catch (err) {
+//     console.error(err);
+//   }
+// };
+
+// Using XMLHttpRequest
+const searchGif = (searchWord) => {
   try {
-    const response = await fetch(
+    const request = new XMLHttpRequest();
+    request.open(
+      "Get",
       `https://api.giphy.com/v1/gifs/search?api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My&q=${searchWord}`
     );
-    if (response.status !== 200) {
-      throw new Error(`Something went wrong!`);
-    }
-    const data = await response.json();
-    const dataLength = data.data.length;
-    const randomGifPosition = randomNum(0, dataLength);
-    const imgUrl = data.data[randomGifPosition]?.images.fixed_height.url;
-    createImg(imgUrl);
+    request.send();
+    request.addEventListener("load", function (e) {
+      if (request.status !== 200) {
+        throw new Error(`Something went wrong!`);
+      }
+      const data = JSON.parse(request.response);
+      const dataLength = data.data.length;
+      const randomGifPosition = randomNum(0, dataLength);
+      const imgUrl = data.data[randomGifPosition]?.images.fixed_height.url;
+      createImg(imgUrl);
+    });
   } catch (err) {
     console.error(err);
   }
