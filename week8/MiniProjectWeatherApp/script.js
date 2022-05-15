@@ -18,7 +18,8 @@ class WeatherCard {
     imgSrc,
     windSpeed,
     sunrise,
-    sunset
+    sunset,
+    cityId
   ) {
     this.city = city;
     this.country = country;
@@ -28,6 +29,7 @@ class WeatherCard {
     this.windSpeed = windSpeed;
     this.sunrise = sunrise;
     this.sunset = sunset;
+    this.cityId = cityId;
     this.createWeatherCard();
     this.removeBtn.addEventListener("click", this.removeCard.bind(this));
     if (!tempUnitCheckbox.checked) {
@@ -123,6 +125,8 @@ class WeatherCard {
     weatherDescriptionP.textContent = this.weatherDescription;
     linkBtn.className = "btn btn-success d-block";
     linkBtn.textContent = "More info";
+    linkBtn.href = `https://openweathermap.org/city/${this.cityId}`;
+    linkBtn.target = "_blank";
     mainCardDiv.style.transform = "translateY(-100vh)";
     mainCardDiv.style.transition = "all 0.5s";
     cardsContainer.insertAdjacentElement("afterbegin", mainCardDiv);
@@ -176,6 +180,7 @@ async function getWeatherData(city) {
       "en-us",
       { minute: "2-digit", hour: "2-digit" }
     );
+    const cityId = data.id;
     new WeatherCard(
       dataCity,
       temp,
@@ -184,9 +189,9 @@ async function getWeatherData(city) {
       imgSrc,
       windSpeed,
       sunriseTime,
-      sunsetTime
+      sunsetTime,
+      cityId
     );
-    console.log(sunriseTime);
   } catch (err) {
     console.log(err);
     errorModal.show();
