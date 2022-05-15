@@ -54,3 +54,7 @@ html {
     transform: translateY(-150vh);
   }
 }
+
+.main {
+  transition: all 1s;
+}
