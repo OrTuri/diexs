@@ -20,6 +20,7 @@ html {
 .card {
   border-radius: 20px;
   min-width: 300px;
+  animation: 1s cubic-bezier(0.47, -0.91, 0.46, 1.81) forwards;
 }
 
 .navbar {
@@ -36,4 +37,20 @@ html {
 
 .cards-container {
   min-height: 50vh;
+}
+@keyframes create-card {
+  0% {
+    transform: translateY(-150vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes delete-card {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-150vh);
+  }
 }

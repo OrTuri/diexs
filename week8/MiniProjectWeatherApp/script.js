@@ -127,8 +127,7 @@ class WeatherCard {
     linkBtn.textContent = "More info";
     linkBtn.href = `https://openweathermap.org/city/${this.cityId}`;
     linkBtn.target = "_blank";
-    mainCardDiv.style.transform = "translateY(-100vh)";
-    mainCardDiv.style.transition = "all 0.5s";
+    mainCardDiv.style.animationName = "create-card";
     cardsContainer.insertAdjacentElement("afterbegin", mainCardDiv);
     setTimeout(() => {
       mainCardDiv.style.transform = "translateY(0)";
@@ -138,10 +137,10 @@ class WeatherCard {
     this.tempHolder = degreesH5;
   }
   removeCard() {
-    this.card.style.transform = "translateY(-100vh)";
+    this.card.style.animationName = "delete-card";
     setTimeout(() => {
       this.card.remove();
-    }, 500);
+    }, 1000);
     weatherCards.splice(this.arrPosition, 1);
     pushDataToLocalStorage(weatherCards);
   }
