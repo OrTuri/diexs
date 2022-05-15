@@ -6,7 +6,7 @@ const cardsContainer = document.querySelector(".cards-container");
 const errorModal = new bootstrap.Modal(document.getElementById("myModal"));
 const tempUnitLabel = document.querySelector(".form-check-label");
 const tempUnitCheckbox = document.querySelector(".form-check-input");
-const weatherCards = localStorage.getItem("data")
+let weatherCards = localStorage.getItem("data")
   ? JSON.parse(localStorage.getItem("data"))
   : [];
 class WeatherCard {
@@ -36,8 +36,8 @@ class WeatherCard {
       this.displayTempInFahrenheit(true);
     }
     weatherCards.push(this);
-    // pushDataToLocalStorage(weatherCards);
-    // this.arrPosition = weatherCards.length - 1;
+    pushDataToLocalStorage(weatherCards);
+    this.arrPosition = weatherCards.length - 1;
   }
   createWeatherCard() {
     const mainCardDiv = document.createElement("div");
@@ -142,8 +142,8 @@ class WeatherCard {
     setTimeout(() => {
       this.card.remove();
     }, 500);
-    // weatherCards.splice(this.arrPosition, 1);
-    // pushDataToLocalStorage(weatherCards);
+    weatherCards.splice(this.arrPosition, 1);
+    pushDataToLocalStorage(weatherCards);
   }
   displayTempInFahrenheit(bool) {
     if (bool) {
@@ -202,9 +202,6 @@ form.addEventListener("submit", function (e) {
   getWeatherData(searchInput.value, true);
   searchInput.value = "";
 });
-// if (weatherCards.length > 0) {
-//   weatherCards.forEach((card) => card.createWeatherCard());
-// }
 tempUnitCheckbox.addEventListener("input", function (e) {
   if (tempUnitCheckbox.checked) {
     tempUnitLabel.textContent = "Celcius";
@@ -214,3 +211,15 @@ tempUnitCheckbox.addEventListener("input", function (e) {
     weatherCards.forEach((card) => card.displayTempInFahrenheit(true));
   }
 });
+async function renderDataFromLocalStorage() {
+  if (localStorage.getItem("data")) {
+    const weatherCardsCopy = [...weatherCards];
+    weatherCards = [];
+    // for (let card of weatherCardsCopy) {
+    //   await getWeatherData(card.city);
+    // }
+    weatherCardsCopy.forEach((card) => getWeatherData(card.city));
+    pushDataToLocalStorage(weatherCards);
+  }
+}
+renderDataFromLocalStorage();
