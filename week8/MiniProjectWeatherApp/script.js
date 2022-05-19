@@ -138,9 +138,25 @@ class WeatherCard {
   }
   removeCard() {
     this.card.style.animationName = "delete-card";
+    //!look here
+    let card = this.card;
     setTimeout(() => {
-      this.card.remove();
-    }, 1000);
+      let interval = setInterval(function() {
+        card.style.visibility = "hidden"
+        card.style.width = card.offsetWidth - 3 + 'px';
+        card.style.height = card.offsetHeight - 3 + 'px';
+
+        console.log(card.offsetWidth);
+        if (card.offsetWidth == 2) {
+          card.innerHTML = ''
+          card.remove();
+
+          clearInterval(interval);
+
+        }
+      }, 1)
+    }, 300);
+
     weatherCards.splice(this.arrPosition, 1);
     pushDataToLocalStorage(weatherCards);
   }
@@ -196,12 +212,12 @@ async function getWeatherData(city) {
     errorModal.show();
   }
 }
-form.addEventListener("submit", function (e) {
+form.addEventListener("submit", function(e) {
   e.preventDefault();
   getWeatherData(searchInput.value, true);
   searchInput.value = "";
 });
-tempUnitCheckbox.addEventListener("input", function (e) {
+tempUnitCheckbox.addEventListener("input", function(e) {
   if (tempUnitCheckbox.checked) {
     tempUnitLabel.textContent = "Celcius";
     weatherCards.forEach((card) => card.displayTempInFahrenheit(false));
