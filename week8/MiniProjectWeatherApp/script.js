@@ -40,6 +40,8 @@ class WeatherCard {
     this.arrPosition = weatherCards.length - 1;
   }
   createWeatherCard() {
+    const outerCardDiv = document.createElement("div");
+    outerCardDiv.className = "outer-card-div";
     const mainCardDiv = document.createElement("div");
     const imgIcon = document.createElement("img");
     const cardBodyDiv = document.createElement("div");
@@ -128,19 +130,36 @@ class WeatherCard {
     linkBtn.href = `https://openweathermap.org/city/${this.cityId}`;
     linkBtn.target = "_blank";
     mainCardDiv.style.animationName = "create-card";
-    cardsContainer.insertAdjacentElement("afterbegin", mainCardDiv);
+    outerCardDiv.append(mainCardDiv);
+    cardsContainer.insertAdjacentElement("afterbegin", outerCardDiv);
     setTimeout(() => {
       mainCardDiv.style.transform = "translateY(0)";
     }, 0);
     this.removeBtn = exitIcon;
     this.card = mainCardDiv;
     this.tempHolder = degreesH5;
+    this.outerCard = outerCardDiv;
   }
   removeCard() {
     this.card.style.animationName = "delete-card";
     setTimeout(() => {
       this.card.remove();
+      this.outerCard.style.width = "0px";
+      this.outerCard.style.height = "0px";
     }, 1000);
+    setTimeout(() => {
+      this.outerCard.remove();
+    }, 2000);
+    // const animation = setInterval(() => {
+    //   let currentWidth = Number(this.card.offsetWidth);
+    //   if (currentWidth > 0) {
+    //     console.log(currentWidth);
+    //     this.card.style.width = `${currentWidth - 2}px`;
+    //   } else {
+    //     clearInterval(animation);
+    //     this.card.remove();
+    //   }
+    // }, 1);
     weatherCards.splice(this.arrPosition, 1);
     pushDataToLocalStorage(weatherCards);
   }

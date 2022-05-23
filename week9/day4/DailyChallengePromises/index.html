@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./script.js" defer></script>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center mt-3 mb-4">Sunrise hour</h1>
+      <form class="col-3 m-auto" name="formSunrise">
+        <div>
+          <h5 class="mb-2">First city</h5>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Latitude</label
+            >
+            <input
+              name="firstCityLatitude"
+              type="text"
+              class="form-control first-city-latitude"
+              id="exampleFormControlInput1"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Longitude
+            </label>
+            <input
+              name="firstCityLongitude"
+              type="text"
+              class="form-control first-city-longitude"
+              id="exampleFormControlInput1"
+            />
+          </div>
+        </div>
+        <div>
+          <h5 class="mb-2 mt-5">Second city</h5>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Latitude</label
+            >
+            <input
+              name="secondCityLatitude"
+              type="text"
+              class="form-control second-city-latitude"
+              id="exampleFormControlInput1"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Longitude
+            </label>
+            <input
+              name="secondCityLongitude"
+              type="text"
+              class="form-control second-city-longitude"
+              id="exampleFormControlInput1"
+            />
+          </div>
+        </div>
+        <input
+          type="submit"
+          class="btn btn-success d-block m-auto"
+          name=""
+          id=""
+        />
+      </form>
+    </div>
+  </body>
+</html>

@@ -61,5 +61,7 @@ function searchGifXMLHttpRequest() {
   request.send();
   request.addEventListener("load", function () {
     console.log(JSON.parse(request.response).data);
+    console.log(request.status);
   });
 }
+searchGifXMLHttpRequest();
