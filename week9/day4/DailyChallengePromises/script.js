@@ -20,11 +20,13 @@ async function promissesHandler(promissesArray) {
   }
 }
 promissesHandler([promise1, promise2, promise3]);
+Promise.all([promise1, promise2, promise3])
+  .then((res) => console.log(res))
+  .catch((err) => console.error(err));
 
 // 2nd Challenge
 
 const form = document.forms.formSunrise;
-
 const getAPIResponse = (latitude, longitude) => {
   return fetch(`https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}
   `).then((res) => res.json());
