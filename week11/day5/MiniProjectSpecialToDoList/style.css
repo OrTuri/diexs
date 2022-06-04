@@ -1,0 +1,37 @@
+.form-section {
+  border-radius: 15px;
+  background-color: #f2ebe9;
+}
+
+.task-container {
+  background-color: #f2ebe9;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.submit-btn {
+  transition: all 0.5s;
+}
+
+.submit-btn:hover {
+  transform: scale(1.05);
+}
+
+.task-container:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .form-section {
+    max-width: 97vw;
+  }
+
+  .task-container {
+    max-width: 97vw;
+  }
+}
+
+#status-input {
+  transform: scale(1.1);
+}
