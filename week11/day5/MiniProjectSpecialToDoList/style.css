@@ -1,3 +1,12 @@
+body,
+html {
+  font-family: sans-serif;
+}
+
+.main-heading {
+  font-family: "Bungee Inline", cursive;
+}
+
 .form-section {
   border-radius: 15px;
   background-color: #f2ebe9;
@@ -34,4 +43,12 @@
 
 #status-input {
   transform: scale(1.1);
+}
+
+.fa-pen-to-square,
+.fa-check {
+  margin-right: auto;
+  font-size: 38px;
+  color: rgb(148, 148, 148);
+  cursor: pointer;
 }

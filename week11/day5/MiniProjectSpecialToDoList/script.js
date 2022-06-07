@@ -24,6 +24,9 @@ class task {
     this.taskStartDate = new Date(taskStartDate);
     this.taskEndDate = new Date(taskEndDate);
     this.createTaskInDom();
+    this.onLoadStatus();
+  }
+  addEventListeners() {
     this.taskContainerElem.addEventListener(
       "click",
       this.modalHandler.bind(this)
@@ -36,15 +39,13 @@ class task {
       "click",
       this.inputStatusHandler.bind(this)
     );
-    this.onLoadStatus();
   }
-
   createTaskInDom() {
     const taskContainer = document.createElement("div");
     taskContainer.className = "text-center mb-4 task-container p-3";
-    const taskNameH4 = document.createElement("h4");
-    taskNameH4.className = "display-6 task-name mb-3";
-    taskNameH4.textContent = this.taskName;
+    this.taskNameH4 = document.createElement("h4");
+    this.taskNameH4.className = "display-6 task-name mb-3";
+    this.taskNameH4.textContent = this.taskName;
     const taskStartingDateP = document.createElement("p");
     taskStartingDateP.className = "lead task-start-date mb-3";
     taskStartingDateP.textContent = `Starting Date: ${this.taskStartDate.toDateString()}`;
@@ -53,7 +54,7 @@ class task {
     taskDaysLeftP.textContent = `${this.calcRemainingDays(
       this.taskEndDate
     )} Days remaining (Until ${this.taskEndDate.toDateString()})`;
-    taskContainer.insertAdjacentElement("beforeend", taskNameH4);
+    taskContainer.insertAdjacentElement("beforeend", this.taskNameH4);
     taskContainer.insertAdjacentElement("beforeend", taskStartingDateP);
     taskContainer.insertAdjacentElement("beforeend", taskDaysLeftP);
     const statusInputDiv = document.createElement("div");
@@ -72,24 +73,62 @@ class task {
     this.taskContainerElem = taskContainer;
     this.statusInputElem = statusInput;
     this.statusInputLabel = statusInputLabel;
+    this.addEventListeners();
+    if (this.calcRemainingDays(this.taskEndDate) < 0 && !this.isCompleted) {
+      taskContainer.style.backgroundColor = "rgb(215, 141, 141)";
+      statusInputLabel.style.color = "#fff";
+    }
   }
-
   calcRemainingDays(futureDate) {
     return Math.ceil(
       (new Date(futureDate) - new Date()) / 1000 / (60 * 60 * 24)
     );
   }
-
   modalHandler() {
-    const modalTitle = document.querySelector(".modal-title");
-    const modalBody = document.querySelector(".modal-body");
-    const deleteTaskBtn = document.querySelector(".delete-task-btn");
-    modalBody.textContent = this.taskDescription;
-    modalTitle.textContent = this.taskName;
-    deleteTaskBtn.addEventListener("click", this.deleteTask.bind(this));
+    // document.querySelector(".fa-pen-to-square").remove();
+    this.modalTitle = document.querySelector(".modal-title");
+    this.modalBody = document.querySelector(".modal-body");
+    this.deleteTaskBtn = document.querySelector(".delete-task-btn");
+    this.modalEditBtn = document.querySelector(".fa-pen-to-square");
+    this.modalOkBtn = document.querySelector(".fa-check");
+    this.modalBody.textContent = this.taskDescription;
+    this.modalTitle.textContent = this.taskName;
+    this.deleteTaskBtn.addEventListener("click", this.deleteTask.bind(this));
     myModal.show();
+    this.closeBtn = document.querySelectorAll(".close-btn");
+    this.modalEditBtn.addEventListener("click", this.editFields.bind(this));
+    const This = this;
+    this.closeBtn.forEach((btn) =>
+      btn.addEventListener("click", function () {
+        This.modalEditBtn.classList.remove("d-none");
+        This.modalOkBtn.classList.add("d-none");
+      })
+    );
   }
-
+  editFields() {
+    this.modalTitle.innerHTML = `<div class="mb-3">
+    <input type="text" class="form-control name-edit" id="exampleFormControlInput1" value="${this.taskName}">
+    </div>`;
+    this.modalBody.innerHTML = `<div class="mb-3">
+    <textarea class="form-control desc-edit" id="exampleFormControlTextarea1" rows="3" >${this.taskDescription}</textarea>
+  </div>`;
+    this.editName = document.querySelector(".name-edit");
+    this.editDesc = document.querySelector(".desc-edit");
+    this.modalEditBtn.classList.add("d-none");
+    this.modalOkBtn.classList.remove("d-none");
+    this.modalOkBtn.addEventListener("click", this.editOkHandler.bind(this));
+  }
+  editOkHandler() {
+    this.taskName = this.editName.value;
+    this.taskDescription = this.editDesc.value;
+    this.taskNameH4.textContent = this.taskName;
+    this.modalTitle.textContent = this.taskName;
+    this.modalBody.textContent = this.taskDescription;
+    this.modalEditBtn.classList.remove("d-none");
+    this.modalOkBtn.classList.add("d-none");
+    console.log(tasks);
+    pushTasksArrayToLocalStorage();
+  }
   deleteTask() {
     deleteModal.show();
     myModal.hide();
@@ -112,7 +151,9 @@ class task {
       myModal.show();
     });
   }
-
+  deleteTaskFromDom() {
+    this.taskContainerElem.remove();
+  }
   inputStatusHandler(e) {
     e.stopPropagation();
     if (e.target === this.statusInputLabel) {
@@ -131,7 +172,6 @@ class task {
     tasks[tasks.findIndex((task) => task.id === this.id)] = this;
     pushTasksArrayToLocalStorage();
   }
-
   onLoadStatus() {
     if (this.isCompleted) {
       this.statusInputElem.checked = true;
@@ -146,7 +186,13 @@ class task {
     }
   }
 }
-
+const organizeTasks = () => {
+  let tasksCopy = tasks;
+  tasksCopy = tasksCopy.sort((a, b) => {
+    return new Date(a.taskStartDate) - new Date(b.taskStartDate);
+  });
+  tasks = tasksCopy;
+};
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   const formData = new FormData(this);
@@ -154,11 +200,15 @@ form.addEventListener("submit", function (e) {
     return { ...acc, [curr[0]]: curr[1] };
   }, {});
   const taskObj = new task({ ...taskObject, isCompleted: false });
-  [...form].forEach((item) => (item.value = ""));
   tasks.push(taskObj);
+  organizeTasks();
+  [...form].forEach((item) => (item.value = ""));
   pushTasksArrayToLocalStorage();
+  tasks.forEach((task) => {
+    task.deleteTaskFromDom();
+    task.createTaskInDom();
+  });
 });
-
 const loadTasksFromLocalStorage = () => {
   const tasksCopy = [...tasks];
   tasks = new Array();
