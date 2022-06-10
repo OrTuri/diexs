@@ -52,3 +52,7 @@ html {
   color: rgb(148, 148, 148);
   cursor: pointer;
 }
+
+.fa-calendar-days {
+  cursor: pointer;
+}

@@ -3,6 +3,7 @@ const form = document.forms.tasksForm;
 const tasksContainer = document.querySelector(".tasks-container");
 const myModal = new bootstrap.Modal("#myModal");
 const deleteModal = new bootstrap.Modal("#deleteModal");
+const calendarBody = document.querySelector(".tBody");
 let tasks = localStorage.getItem("tasks")
   ? JSON.parse(localStorage.getItem("tasks"))
   : [];
@@ -17,14 +18,17 @@ class task {
     taskStartDate,
     taskEndDate,
     isCompleted,
+    calendarColor,
   }) {
     this.isCompleted = isCompleted;
     this.taskName = taskName;
     this.taskDescription = taskDescription;
     this.taskStartDate = new Date(taskStartDate);
     this.taskEndDate = new Date(taskEndDate);
+    this.calendarColor = calendarColor;
     this.createTaskInDom();
     this.onLoadStatus();
+    this.createInCalendar();
   }
   addEventListeners() {
     this.taskContainerElem.addEventListener(
@@ -185,7 +189,62 @@ class task {
       this.statusInputLabel.classList.remove("text-success");
     }
   }
+
+  createInCalendar() {
+    if (this.taskEndDate - this.taskStartDate < 0) return;
+    const numDays =
+      Math.floor(
+        ((this.taskEndDate - this.taskStartDate) / 1000 / (60 * 60 * 24)) % 7
+      ) + 1;
+    const startDay = this.taskStartDate.getDay();
+    console.log(`Start: ${startDay}, Days: ${numDays}`);
+    let td = "";
+    for (let i = 0; i < 7; i++) {
+      if (i === 0 && startDay + numDays > 7) {
+        td += ` <td colspan="${7 - (startDay + numDays)}"><div
+        class="rounded-pill py-1 text-white lead d-flex align-items-center justify-content-center border-dark border" 
+        style="background-color: ${this.calendarColor}"
+      >
+        ${this.taskName}
+      </div></td>`;
+        i = startDay;
+      } else if (i === startDay) {
+        td += ` <td colspan="${
+          startDay + numDays > 7
+            ? numDays - (7 - (startDay + numDays))
+            : numDays
+        }"><div
+        class="rounded-pill py-1 text-white lead d-flex align-items-center justify-content-center border-dark border" 
+        style="background-color: ${this.calendarColor}"
+      >
+        ${this.taskName}
+      </div></td>`;
+        if (startDay + numDays > 7) {
+          i = i + numDays - (7 - (startDay + numDays));
+        } else {
+          i = i + numDays;
+        }
+      } else {
+        td += ` <td></td>`;
+      }
+    }
+
+    calendarBody.insertAdjacentHTML("beforeend", td);
+  }
 }
+
+const getRandomNumber = (min, max) => {
+  return Math.random() * (max - min) + min;
+};
+
+const getRandomCssColor = () => {
+  const r = getRandomNumber(0, 255);
+  const g = getRandomNumber(0, 255);
+  const b = getRandomNumber(0, 255);
+
+  return `rgb(${r}, ${g}, ${b});`;
+};
+
 const organizeTasks = () => {
   let tasksCopy = tasks;
   tasksCopy = tasksCopy.sort((a, b) => {
@@ -199,7 +258,11 @@ form.addEventListener("submit", function (e) {
   const taskObject = [...formData].reduce((acc, curr) => {
     return { ...acc, [curr[0]]: curr[1] };
   }, {});
-  const taskObj = new task({ ...taskObject, isCompleted: false });
+  const taskObj = new task({
+    ...taskObject,
+    isCompleted: false,
+    calendarColor: getRandomCssColor(),
+  });
   tasks.push(taskObj);
   organizeTasks();
   [...form].forEach((item) => (item.value = ""));
