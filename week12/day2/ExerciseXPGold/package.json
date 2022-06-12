@@ -1,0 +1,19 @@
+{
+  "name": "exercisexpgold",
+  "version": "1.0.0",
+  "description": "",
+  "main": "date.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "date-holidays": "^3.16.1",
+    "nodemon": "^2.0.16",
+    "prompt": "^1.3.0",
+    "prompt-sync": "^4.2.0"
+  }
+}
