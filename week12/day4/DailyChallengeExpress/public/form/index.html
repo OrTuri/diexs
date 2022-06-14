@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .container {
+        width: fit-content;
+        margin: auto;
+      }
+
+      .input-container {
+        margin: 10px 0;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Contact me</h1>
+      <form action="/formData" method="post">
+        <div class="input-container">
+          <label for="email">E-mail</label>
+          <input
+            required
+            type="email"
+            name="email"
+            id="email"
+            placeholder="john@gmail.com"
+          />
+        </div>
+        <div class="input-container">
+          <label for="message">Message</label>
+          <textarea
+            required
+            name="message"
+            id="message"
+            cols="30"
+            rows="3"
+          ></textarea>
+        </div>
+        <button type="submit">Submit!</button>
+      </form>
+    </div>
+  </body>
+</html>
