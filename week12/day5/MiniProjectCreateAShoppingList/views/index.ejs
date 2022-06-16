@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <title>Shopping List</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="display-4 text-center pt-3">List of items</h1>
+      <ul class="m-auto d-block mt-5 p-0 items-list">
+        <% if(shoppingList < 1) { %>
+        <h1 class="display-6 text-center">The list is empty!</h1>
+        <p class="lead fw-bold text-center">Please add items!</p>
+        <% } else { %> <% shoppingList.forEach(item => { %>
+        <li
+          class="list-group-item d-flex justify-content-center gap-3 my-1 align-items-center lead fs-4 text-start"
+        >
+          <%= item.item %>
+          <span class="badge bg-secondary"><%= item.amount %></span>
+        </li>
+        <% })}; %>
+      </ul>
+      <a class="btn btn-success d-block w-25 mt-5 m-auto" href="/"
+        >ADD ITEMS!</a
+      >
+    </div>
+  </body>
+</html>
