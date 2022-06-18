@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script src="./script.js" defer></script>
+    <title>Shopping List</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="display-4 text-center my-3">Add to shopping list</h1>
+      <form name="form" style="width: 350px" class="m-auto my-3">
+        <div class="mb-3">
+          <label for="item" class="form-label">Item</label>
+          <input
+            name="item"
+            type="text"
+            class="form-control"
+            id="item"
+            placeholder="Milk"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="amount" class="form-label">Amount</label>
+          <input
+            name="amount"
+            type="text"
+            class="form-control"
+            id="amount"
+            placeholder="5"
+          />
+        </div>
+        <button type="submit" class="btn btn-success d-block m-auto">
+          ADD TO LIST
+        </button>
+      </form>
+      <a
+        href="/items"
+        class="btn btn-danger d-block m-auto w-25"
+        style="text-transform: uppercase"
+        >Go to list!</a
+      >
+    </div>
+  </body>
+</html>
