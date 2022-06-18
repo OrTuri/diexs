@@ -13,10 +13,8 @@ app.listen(3000);
 
 const getPosts = async () => {
   const feed = await parser.parseURL("https://www.thefactsite.com/feed/");
-  return feed;
+  return feed["items"];
 };
-
-getPosts();
 
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/public/pages");
@@ -27,8 +25,7 @@ app.use(express.static("./public"));
 app.get("/", async (req, res) => {
   try {
     const posts = await getPosts();
-    console.log(posts["items"][0].categories);
-    res.render("index", { posts: posts["items"] });
+    res.render("index", { posts });
   } catch (err) {
     console.log(err);
   }
@@ -36,8 +33,8 @@ app.get("/", async (req, res) => {
 
 app.get("/search", async (req, res) => {
   try {
-    const rssFeedArray = await getPosts();
-    const categories = getCategories(rssFeedArray["items"]);
+    const posts = await getPosts();
+    const categories = getCategories(posts);
     res.render("search", { categories });
   } catch (err) {
     console.log(err);
@@ -46,16 +43,16 @@ app.get("/search", async (req, res) => {
 
 app.post("/search/category", async (req, res) => {
   const posts = await getPosts();
-  const categories = getCategories(posts["items"]);
+  const categories = getCategories(posts);
   const categorySelected = req.body.categorySelect;
-  const filteredPosts = getPostsByCategory(posts["items"], categorySelected);
+  const filteredPosts = getPostsByCategory(posts, categorySelected);
   res.render("search", { filteredPosts, categories });
 });
 
 app.post("/search/title", async (req, res) => {
   const posts = await getPosts();
   const keyword = req.body.searchKeyword;
-  const categories = getCategories(posts["items"]);
-  const filteredPosts = getPostsByTitle(posts["items"], keyword);
+  const categories = getCategories(posts);
+  const filteredPosts = getPostsByTitle(posts, keyword);
   res.render("search", { filteredPosts, categories });
 });
