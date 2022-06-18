@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../partials/head.ejs") %>
+  </head>
+  <body>
+    <div class="container">
+      <%- include("../partials/header", {search: true, currentPage: "search"})
+      %>
+      <h1 class="display-4 text-center my-3">Search facts</h1>
+
+      <form
+        class="form m-auto my-4 d-flex gap-3 justify-content-between"
+        name="searchForm"
+        method="POST"
+        action="/search/title"
+      >
+        <div class="w-100">
+          <input
+            required
+            name="searchKeyword"
+            type="text"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="Search By Title"
+          />
+        </div>
+        <button class="btn btn-success">SEARCH</button>
+      </form>
+      <form
+        class="form m-auto my-4 d-flex gap-3"
+        name="categoryForm"
+        method="POST"
+        ,
+        action="/search/category"
+      >
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          name="categorySelect"
+        >
+          <option selected disabled>Choose Category</option>
+          <% categories.forEach(category => { %>
+          <option value="<%= category%>"><%= category %></option>
+          <% }); %>
+        </select>
+        <button class="btn btn-success">GO</button>
+      </form>
+      <% if(typeof filteredPosts !== "undefined") { %> <%-
+      include("../partials/posts.ejs",{posts: filteredPosts}) %> <% } %>
+    </div>
+    <%- include("../partials/footer") %>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<% posts.forEach(post=> { %>
+<div class="posts m-auto">
+  <div class="card post my-3">
+    <div class="card-header">
+      <%= new Date(post.pubDate).toLocaleDateString("en-il") %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= post.title %></h5>
+      <p class="card-text"><%= post.contentSnippet %></p>
+      <h6>
+        <% post.categories.forEach(category => { %>
+        <span class="badge bg-secondary"><%= category %></span>
+        <% }) %>
+      </h6>
+      <a href="<%= post.link %>" target="_blank" class="btn btn-primary mt-3"
+        >READ MORE</a
+      >
+    </div>
+  </div>
+</div>
+<% }) %>
