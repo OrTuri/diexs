@@ -54,5 +54,6 @@ app.post("/search/title", async (req, res) => {
   const keyword = req.body.searchKeyword;
   const categories = getCategories(posts);
   const filteredPosts = getPostsByTitle(posts, keyword);
+  console.log(filteredPosts);
   res.render("search", { filteredPosts, categories });
 });

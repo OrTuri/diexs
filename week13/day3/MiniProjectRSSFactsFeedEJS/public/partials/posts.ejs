@@ -1,5 +1,5 @@
-<% posts.forEach(post=> { %>
 <div class="posts m-auto">
+  <% posts.forEach(post=> { %>
   <div class="card post my-3">
     <div class="card-header">
       <%= new Date(post.pubDate).toLocaleDateString("en-il") %>
@@ -17,5 +17,5 @@
       >
     </div>
   </div>
+  <% }) %>
 </div>
-<% }) %>
