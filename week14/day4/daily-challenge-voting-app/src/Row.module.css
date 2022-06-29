@@ -1,0 +1,12 @@
+.row {
+  display: flex;
+  margin: auto;
+  border: 1px solid #000;
+  padding: 20px;
+  min-width: 350px;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  border-radius: 15px;
+  box-shadow: 2px 3px 15px 0px #00000030;
+}
