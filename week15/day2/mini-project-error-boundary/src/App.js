@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from "react";
 
-function App() {
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
+
+import { ColumnLeft } from "./columns/ColumnLeft";
+import { ColumnRight } from "./columns/ColumnRight";
+import ErrorBoundary from "./ErrorBoundary";
+
+import "./App.scss";
+
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <Fragment>
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand href="#home">Error boundaries in react</Navbar.Brand>
+      </Navbar>
+      <Container fluid>
+        <Row>
+          <Col className="column" xs="12" md="3">
+            <ColumnLeft />
+          </Col>
 
-export default App;
+          <Col className="column" xs="12" md="9">
+            <ErrorBoundary>
+              <ColumnRight />
+            </ErrorBoundary>
+          </Col>
+        </Row>
+      </Container>
+    </Fragment>
+  );
+};
