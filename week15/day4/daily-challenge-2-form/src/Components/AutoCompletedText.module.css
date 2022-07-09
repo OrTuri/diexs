@@ -1,0 +1,11 @@
+.input {
+}
+
+.results {
+  height: 300px;
+  overflow: auto;
+}
+
+.result {
+  cursor: pointer;
+}
