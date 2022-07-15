@@ -16,8 +16,8 @@ const sendDataToServer = async (data, url, method) => {
 };
 
 const updateDone = (data) => {
-  const res = axios({
-    url: "/todo/update",
+  axios({
+    url: `${process.env.REACT_APP_PROXY}/todo/update`,
     method: "PUT",
     data: data,
     headers: { "Content-Type": "application/json" },
@@ -25,14 +25,16 @@ const updateDone = (data) => {
 };
 
 const getAllTodo = async () => {
-  const res = await axios({ url: "/todo/getall" });
+  const res = await axios({
+    url: `${process.env.REACT_APP_PROXY}/todo/getall`,
+  });
   const data = res.data;
   return data;
 };
 
 const deleteTask = async (id) => {
-  const res = await axios({
-    url: "/todo/delete",
+  await axios({
+    url: `${process.env.REACT_APP_PROXY}/todo/delete`,
     method: "DELETE",
     data: id,
     headers: { "Content-Type": "text/plain" },
@@ -77,7 +79,7 @@ const App = () => {
     }
     const id = await sendDataToServer(
       { todo: taskInput, done: false },
-      "/todo/upload",
+      `${process.env.REACT_APP_PROXY}/todo/upload`,
       "POST"
     );
     const todo = {

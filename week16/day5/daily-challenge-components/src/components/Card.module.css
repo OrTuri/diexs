@@ -1,0 +1,33 @@
+.main-container {
+  max-width: 600px;
+  min-height: 100px;
+  background-color: antiquewhite;
+  margin: 50px auto;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.icon-title-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+.icon {
+  color: rgb(169, 151, 37);
+  font-size: 20px;
+}
+
+.amount {
+  font-size: 50px;
+  text-align: left;
+  padding: 10px;
+}
+
+@media (max-width: 640px) {
+  .main-container {
+    margin: 50px 20px;
+  }
+}

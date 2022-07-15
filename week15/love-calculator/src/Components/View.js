@@ -1,19 +1,24 @@
 import { Component } from "react";
-import { Input } from "./Input";
-import { Button } from "./Button";
+import { connect } from "react-redux";
 
 class View extends Component {
   render() {
-    if (!this.props.fname) return null;
+    if (!this.props.match.fname) return null;
     return (
       <div>
-        <p>First Name: {this.props.fname}</p>
-        <p>Second Name: {this.props.lname}</p>
-        <h1>Match percentage: {this.props.percentage}%</h1>
-        <h2>{this.props.result}</h2>
+        <p>First Name: {this.props.match.fname}</p>
+        <p>Second Name: {this.props.match.sname}</p>
+        <h1>Match percentage: {this.props.match.percentage}%</h1>
+        <h2>{this.props.match.result}</h2>
       </div>
     );
   }
 }
 
-export default View;
+const mapStateToProps = (state) => {
+  return {
+    match: state.match,
+  };
+};
+
+export default connect(mapStateToProps)(View);

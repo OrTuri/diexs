@@ -3,6 +3,8 @@ import React from "react";
 import Input from "./Components/Input";
 import Button from "./Components/Button";
 import View from "./Components/View";
+import { connect } from "react-redux";
+import { setMatch } from "./actions";
 const axios = require("axios").default;
 
 class App extends React.Component {
@@ -11,7 +13,6 @@ class App extends React.Component {
     this.state = {
       firstName: "",
       lastName: "",
-      results: {},
     };
   }
 
@@ -30,7 +31,7 @@ class App extends React.Component {
       params: { sname: this.state.lastName, fname: this.state.firstName },
     });
     const data = res.data;
-    this.setState({ results: data });
+    this.props.setMatch(data);
   };
 
   render() {
@@ -50,16 +51,16 @@ class App extends React.Component {
           onChangeHandler={this.onChangeHandler}
         />
         <Button label={"Submit"} onClickHandler={this.onClickHandler} />
-
-        <View
-          fname={this.state.results.fname}
-          lname={this.state.results.sname}
-          percentage={this.state.results.percentage}
-          result={this.state.results.result}
-        />
+        <View />
       </div>
     );
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setMatch: (match) => dispatch(setMatch(match)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(App);

@@ -16,7 +16,6 @@ const postTodo = (req, res) => {
 
 const updateDone = (req, res) => {
   const { id, done } = req.body;
-  console.log(id, done);
   updateRecord("todo_list", { done }, { todo_id: id });
   res.status(200);
 };
@@ -26,9 +25,7 @@ const getTodoList = (req, res) => {
 };
 
 const deleteTask = (req, res) => {
-  deleteFromDB("todo_list", { todo_id: req.body }).then((res) =>
-    console.log(res)
-  );
+  deleteFromDB("todo_list", { todo_id: req.body }).then();
 };
 
 module.exports = {

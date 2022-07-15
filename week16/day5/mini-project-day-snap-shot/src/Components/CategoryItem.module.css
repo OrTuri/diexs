@@ -1,0 +1,26 @@
+.category-container {
+  min-width: 80px;
+  height: 20px;
+  padding: 5px;
+  background-color: rgb(57, 94, 173);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 15px 2px rgb(0 0 0 / 31%);
+  transition: all 0.5s;
+}
+
+.category-container:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 14px 7px rgb(0 0 0 / 31%);
+}
+
+.category {
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+}
